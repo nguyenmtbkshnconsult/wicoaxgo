@@ -12,130 +12,187 @@
     --paper:#f4eee1; --paper-2:#efe7d6; --ink:#20283c; --ink-soft:#4a5468;
     --line:#d8cdb6; --persimmon:#d4552c; --persimmon-d:#b8421e; --indigo:#2c4a7c;
     --jade:#2f6b5a; --ochre:#c08a2d; --slate:#6b7689; --rest:#8a8170; --card:#fbf7ec;
+    --line7:#747f00; --line2:#00a84d; --line1:#0052a4; --line3:#ef7c1c;
     --shadow:0 1px 0 rgba(32,40,60,.04), 0 16px 34px -22px rgba(32,40,60,.5);
-    --nav-h:60px;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
-  body{
-    font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);line-height:1.6;
+  body{font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);line-height:1.6;
     background:var(--paper);-webkit-font-smoothing:antialiased;
     background-image:radial-gradient(circle at 12% -3%,rgba(212,85,44,.07),transparent 40%),
-      radial-gradient(circle at 92% 5%,rgba(44,74,124,.07),transparent 38%);
-  }
-  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+      radial-gradient(circle at 92% 5%,rgba(44,74,124,.07),transparent 38%);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
 
-  /* ---------- HERO ---------- */
-  header.hero{padding:clamp(34px,6vw,64px) 0 clamp(22px,3vw,34px);border-bottom:2px solid var(--ink)}
+  /* HERO */
+  header.hero{padding:clamp(34px,6vw,56px) 0 clamp(20px,3vw,30px);border-bottom:2px solid var(--ink)}
   .hero .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--persimmon-d)}
-  .hero h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,6vw,4rem);line-height:1;letter-spacing:-.015em;margin-top:12px}
+  .hero h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,6vw,3.8rem);line-height:1;letter-spacing:-.015em;margin-top:12px}
   .hero h1 em{font-style:italic;font-weight:500;color:var(--persimmon)}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,3vw,28px)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(16px,3vw,24px)}
   .chip{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);
-    padding:9px 15px;border-radius:999px;font-size:.84rem;font-weight:500;box-shadow:var(--shadow)}
+    padding:8px 14px;border-radius:999px;font-size:.82rem;font-weight:500;box-shadow:var(--shadow)}
   .chip b{font-weight:700} .chip .dot{width:10px;height:10px;border-radius:50%;flex:none}
   .d-axgo{background:var(--persimmon)} .d-wico{background:var(--indigo)} .d-stay{background:var(--jade)} .d-fly{background:var(--slate)}
 
-  /* ---------- NAV (top on desktop / bottom on mobile) ---------- */
-  nav.tabs{position:sticky;top:0;z-index:60;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
-    background:rgba(244,238,225,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 14px}
-  nav.tabs button{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-    font-family:inherit;font-size:.9rem;font-weight:600;color:var(--ink-soft);
-    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 18px;transition:.2s}
-  nav.tabs button svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-  nav.tabs button.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-
-  /* ---------- TABS ---------- */
-  main{padding-top:26px;min-height:60vh}
-  .tab{display:none;animation:fade .35s ease}
-  .tab.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .col{max-width:820px;margin:0 auto}
-
-  /* ---------- DAY PILLS ---------- */
-  .pills{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 16px;flex-wrap:nowrap;justify-content:flex-start}
+  /* DAY PILLS - sticky top */
+  .pills-wrap{position:sticky;top:0;z-index:60;background:rgba(244,238,225,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:11px 0}
+  .pills{display:flex;gap:8px;overflow-x:auto;padding:2px clamp(16px,4vw,32px);max-width:1080px;margin:0 auto;flex-wrap:nowrap}
   .pills::-webkit-scrollbar{height:0}
   .pill{flex:none;border:1px solid var(--line);background:var(--card);border-radius:14px;
-    padding:9px 13px;text-align:center;cursor:pointer;transition:.25s;min-width:58px}
-  .pill .pn{font-family:"Fraunces",serif;font-weight:900;font-size:1.05rem;line-height:1;white-space:nowrap}
-  .pill .pd{font-size:.6rem;font-weight:600;color:var(--slate);margin-top:3px;letter-spacing:.04em}
+    padding:8px 12px;text-align:center;cursor:pointer;transition:.25s;min-width:56px}
+  .pill .pn{font-family:"Fraunces",serif;font-weight:900;font-size:1rem;line-height:1;white-space:nowrap}
+  .pill .pd{font-size:.58rem;font-weight:600;color:var(--slate);margin-top:3px;letter-spacing:.04em}
   .pill.on{background:var(--ink);border-color:var(--ink)}
   .pill.on .pn{color:var(--paper)} .pill.on .pd{color:rgba(244,238,225,.7)}
+  .pill.info{min-width:auto;padding:8px 14px}
+  .pill.info .pn{font-family:"Be Vietnam Pro";font-weight:600;font-size:.85rem}
 
-  .dhead{padding:8px 2px 16px}
+  /* CONTENT */
+  main{padding:26px 0 50px;min-height:60vh}
+  .col{max-width:780px;margin:0 auto;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* DAY HEADER */
+  .dhead{padding:6px 2px 26px;border-bottom:2px solid var(--ink);margin-bottom:8px}
   .dhead .date{font-size:.78rem;color:var(--persimmon-d);font-weight:600;letter-spacing:.04em}
-  .dhead .title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.35rem,3vw,1.7rem);line-height:1.15;margin-top:3px}
-  .dhead .gist{font-size:.88rem;color:var(--ink-soft);margin-top:3px}
+  .dhead .title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3vw,2rem);line-height:1.1;margin-top:4px;letter-spacing:-.01em}
+  .dhead .gist{font-size:.92rem;color:var(--ink-soft);margin-top:6px}
 
-  .row{display:grid;grid-template-columns:64px 5px 1fr;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line)}
-  .row:last-child{border-bottom:none}
-  .row .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:.9rem;white-space:nowrap}
-  .row .t small{display:block;font-weight:400;font-size:.62rem;color:var(--slate)}
-  .row .bar{border-radius:3px;align-self:stretch;min-height:20px}
-  .row .act{font-weight:500;font-size:.96rem;line-height:1.4}
-  .row .note{font-size:.8rem;color:var(--ink-soft);margin-top:4px;line-height:1.5}
-  .row .where{display:inline-block;font-size:.72rem;color:var(--jade);font-weight:600;margin-top:5px}
-  .tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  /* SCHEDULE ROWS */
+  .row{display:grid;grid-template-columns:64px 5px 1fr;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .row.has-expand{border-bottom:none;padding-bottom:6px}
+  .row .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:.92rem;white-space:nowrap}
+  .row .t small{display:block;font-weight:400;font-size:.6rem;color:var(--slate)}
+  .row .bar{border-radius:3px;align-self:stretch;min-height:24px}
+  .row .act{font-weight:600;font-size:.95rem;line-height:1.4}
+  .row .note{font-size:.79rem;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+  .row .where{display:inline-block;font-size:.7rem;color:var(--jade);font-weight:600;margin-top:5px}
+  .tag{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     padding:2px 8px;border-radius:6px;margin-left:7px;vertical-align:middle;color:#fff}
   .bar-comp,.tag-comp{background:var(--persimmon)} .wico .bar-comp,.wico .tag-comp{background:var(--indigo)}
   .bar-meal{background:var(--ochre)} .bar-travel{background:var(--slate)}
   .bar-rest{background:var(--rest)} .bar-see{background:var(--jade)}
   .bar-doc{background:var(--ink)} .bar-fly{background:var(--persimmon-d)}
 
-  /* ---------- PLACES ---------- */
-  .grp{display:flex;align-items:center;gap:11px;margin:26px 2px 14px}
-  .grp .pin{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:#fff;font-size:.95rem;font-weight:700;flex:none}
-  .grp h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.15rem;line-height:1.15}
-  .grp p{font-size:.8rem;color:var(--ink-soft);margin-top:1px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;align-items:start}
-  .place{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px;
+  /* EXPAND — inline under a row */
+  .expand{margin:6px 0 18px;padding:0;border-bottom:1px dashed var(--line);padding-bottom:18px}
+  .expand:last-child{border-bottom:none}
+  .expand .sublabel{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--slate);margin:0 2px 10px;display:flex;align-items:center;gap:6px}
+  .expand .sublabel::before{content:"";display:inline-block;width:14px;height:1px;background:var(--slate)}
+  .expand .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start}
+
+  /* ROUTE */
+  .route{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .route::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--ink)}
+  .route.r-arr::before{background:var(--jade)} .route.r-axgo::before{background:var(--persimmon)}
+  .route.r-wico::before{background:var(--indigo)} .route.r-dep::before{background:var(--ochre)}
+  .route-h{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+  .route-h h4{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;line-height:1.2}
+  .route-h .stat{font-size:.72rem;color:var(--slate);font-variant-numeric:tabular-nums;margin-top:2px}
+  .recommend{font-size:.66rem;font-weight:700;padding:5px 10px;border-radius:8px;color:#fff;white-space:nowrap;letter-spacing:.04em;text-transform:uppercase}
+  .rec-bus{background:var(--persimmon)} .rec-sub{background:var(--indigo)}
+  .steps{display:flex;flex-direction:column}
+  .step{display:grid;grid-template-columns:30px 1fr;gap:11px;padding:7px 0;align-items:flex-start;position:relative}
+  .step+.step::before{content:"";position:absolute;left:14px;top:-2px;width:2px;height:10px;background:var(--line)}
+  .stepnum{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.78rem;color:#fff;background:var(--slate);flex:none}
+  .step.walk .stepnum{background:#94a0b3}
+  .step.line7 .stepnum{background:var(--line7)}
+  .step.line2 .stepnum{background:var(--line2)}
+  .step.line1 .stepnum{background:var(--line1)}
+  .step.line3 .stepnum{background:var(--line3)}
+  .step.bus .stepnum{background:var(--persimmon)}
+  .step.arrive .stepnum{background:var(--jade)}
+  .step-c .what{font-weight:600;font-size:.88rem;line-height:1.35}
+  .step-c .det{font-size:.76rem;color:var(--ink-soft);margin-top:3px;line-height:1.45}
+  .badge-line{display:inline-block;padding:2px 7px;border-radius:5px;font-size:.6rem;font-weight:700;color:#fff;margin-right:4px;vertical-align:middle}
+  .b-l7{background:var(--line7)} .b-l2{background:var(--line2)} .b-l1{background:var(--line1)} .b-l3{background:var(--line3)}
+  .route .tip{background:#f6f1e3;border-radius:9px;padding:10px 13px;font-size:.76rem;color:var(--ink-soft);margin-top:10px;line-height:1.5}
+  .route .tip b{color:var(--ink)}
+
+  /* DISH / PLACE CARDS */
+  .dish,.place{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:17px;
     box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
-  .place::before{content:"";position:absolute;inset:0 auto 0 0;width:4px}
+  .dish::before,.place::before{content:"";position:absolute;inset:0 auto 0 0;width:4px}
+  .dish.lunch::before{background:var(--jade)} .dish.dinner::before{background:var(--persimmon)}
   .place.see1::before{background:var(--jade)} .place.see4::before{background:var(--persimmon)} .place.rain::before{background:var(--indigo)}
-  @media(hover:hover){.place:hover{transform:translateY(-4px);box-shadow:0 26px 48px -24px rgba(32,40,60,.5)}}
-  .place .pname{font-family:"Fraunces",serif;font-weight:600;font-size:1.1rem;line-height:1.2}
-  .place .badges{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
-  .badge{font-size:.64rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft)}
+  @media(hover:hover){.dish:hover,.place:hover{transform:translateY(-3px);box-shadow:0 22px 44px -22px rgba(32,40,60,.5)}}
+  .dish .dname,.place .pname{font-family:"Fraunces",serif;font-weight:600;font-size:1.04rem;line-height:1.2}
+  .dish .dname small{display:block;font-family:"Be Vietnam Pro";font-size:.72rem;font-weight:500;color:var(--slate);margin-top:2px}
+  .dish .rating{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;color:var(--ochre);margin-top:6px}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}
+  .badge{font-size:.62rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft)}
   .badge.free{color:var(--jade);border-color:#bcd6c9;background:#eaf3ee}
   .badge.indoor{color:var(--indigo);border-color:#c2cee0;background:#e9eef6}
-  .place .pdesc{font-size:.83rem;color:var(--ink-soft);line-height:1.5}
-  .place .hours{font-size:.73rem;color:var(--slate);margin-top:10px;font-variant-numeric:tabular-nums}
-  .pactions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-  .btn{font-size:.75rem;font-weight:600;padding:8px 13px;border-radius:11px;cursor:pointer;border:1px solid var(--line);
-    background:var(--paper-2);color:var(--ink);display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+  .ddesc,.pdesc{font-size:.81rem;color:var(--ink-soft);line-height:1.5}
+  .dhours,.phours{font-size:.7rem;color:var(--slate);margin-top:9px;font-variant-numeric:tabular-nums}
+  .pactions{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
+  .btn{font-size:.72rem;font-weight:600;padding:7px 12px;border-radius:11px;cursor:pointer;border:1px solid var(--line);
+    background:var(--paper-2);color:var(--ink);display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-family:inherit}
   .btn.primary{background:var(--indigo);border-color:var(--indigo);color:#fff}
   .map-embed{max-height:0;overflow:hidden;transition:max-height .45s ease;grid-column:1/-1}
-  .map-embed.show{max-height:260px}
-  .map-embed iframe{width:100%;height:240px;border:0;border-radius:12px;display:block;margin-top:13px}
+  .map-embed.show{max-height:240px}
+  .map-embed iframe{width:100%;height:220px;border:0;border-radius:11px;display:block;margin-top:12px}
+
+  .special-note{background:#e9eef6;border:1px solid #c2cee0;border-left:4px solid var(--indigo);
+    border-radius:12px;padding:13px 16px;font-size:.85rem;color:var(--ink-soft);line-height:1.5}
+  .special-note b{color:var(--indigo)}
   .callout{background:#fdf3e9;border:1px solid #e7c79f;border-left:4px solid var(--persimmon);
-    border-radius:12px;padding:14px 17px;font-size:.85rem;line-height:1.55;margin:8px 2px;color:#7a4a26}
+    border-radius:12px;padding:13px 16px;font-size:.83rem;line-height:1.5;color:#7a4a26;margin-bottom:12px}
   .callout b{color:var(--persimmon-d)}
 
-  /* ---------- INFO ---------- */
-  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  /* INFO PANEL */
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:6px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
   .panel h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;margin-bottom:12px}
-  .legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:.82rem;color:var(--ink-soft)}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:.8rem;color:var(--ink-soft)}
   .legend span{display:inline-flex;align-items:center;gap:7px}
   .legend i{width:13px;height:13px;border-radius:3px;display:inline-block}
-  .todo li{list-style:none;font-size:.86rem;padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
+  .todo{list-style:none}
+  .todo li{font-size:.83rem;padding:8px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
   .todo li:last-child{border-bottom:none}
-  .todo li::before{content:"☐";color:var(--persimmon);font-size:1.05rem;line-height:1.25}
+  .todo li::before{content:"☐";color:var(--persimmon);font-size:1rem;line-height:1.25;flex:none}
+  .hotel-card iframe{width:100%;height:220px;border:0;border-radius:11px;margin-top:10px}
+  .hotel-card .haddr{font-size:.82rem;color:var(--ink-soft);line-height:1.55}
+  .hotel-card .haddr b{color:var(--ink)}
+  .hotel-card .hactions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 
-  footer{margin-top:50px;border-top:2px solid var(--ink);padding:26px 0 40px;font-size:.78rem;color:var(--slate)}
-  footer p{max-width:70ch}
+  /* COST */
+  .cost-section{margin-bottom:18px}
+  .cost-section h4{font-family:"Fraunces",serif;font-weight:600;font-size:.95rem;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .cost-section h4 .ic{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;color:#fff;font-size:.82rem}
+  .ic.pre{background:var(--indigo)} .ic.move{background:var(--slate)}
+  .ic.food{background:var(--ochre)} .ic.see{background:var(--jade)}
+  .cost-section p{font-size:.74rem;color:var(--ink-soft);margin:0 0 6px 32px}
+  .cost-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .cost-row:last-of-type{border-bottom:none}
+  .cost-row .cn{flex:1;font-size:.85rem;font-weight:500;line-height:1.4}
+  .cost-row .cn .cnote{display:block;font-size:.7rem;color:var(--slate);font-weight:400;margin-top:3px;line-height:1.4}
+  .cost-row .ca{font-variant-numeric:tabular-nums;font-weight:700;font-size:.86rem;text-align:right;white-space:nowrap}
+  .cost-row .ca small{display:block;font-size:.62rem;font-weight:500;color:var(--slate);margin-top:2px;letter-spacing:.04em;text-transform:uppercase}
+  .cost-row.est .ca{color:var(--persimmon-d)}
+  .cost-row.conf .ca{color:var(--jade)}
+  .cost-row.unk .ca{color:var(--slate);font-style:italic}
+  .cost-sub{display:flex;justify-content:space-between;padding-top:11px;margin-top:4px;border-top:2px solid var(--ink);font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
+  .cost-total{background:var(--ink);color:var(--paper);border-radius:18px;padding:22px 24px;margin-top:18px;box-shadow:var(--shadow)}
+  .cost-total .tlabel{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,225,.7);font-weight:600}
+  .cost-total .tnum{font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;line-height:1.1;margin-top:6px;color:var(--paper)}
+  .cost-total .tvnd{color:rgba(244,238,225,.85);font-size:.96rem;margin-top:6px;font-weight:500}
+  .cost-total .tnote{font-size:.74rem;color:rgba(244,238,225,.65);margin-top:14px;line-height:1.5;padding-top:14px;border-top:1px solid rgba(244,238,225,.18)}
+  .cost-legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:.74rem;color:var(--ink-soft);margin-top:12px;padding:11px 13px;background:var(--paper-2);border-radius:10px}
+  .cost-legend span{display:inline-flex;align-items:center;gap:6px}
+  .cost-legend i{width:10px;height:10px;border-radius:50%}
+  .lg-conf{background:var(--jade)} .lg-est{background:var(--persimmon-d)} .lg-unk{background:var(--slate)}
 
-  /* ============ MOBILE: nav xuống đáy, 1 cột ============ */
+  footer{margin-top:50px;border-top:2px solid var(--ink);padding:24px 0 40px;font-size:.78rem;color:var(--slate)}
+  footer p{max-width:70ch;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+
   @media(max-width:720px){
-    nav.tabs{position:fixed;left:0;right:0;bottom:0;top:auto;justify-content:space-around;flex-wrap:nowrap;
-      gap:0;border-top:1px solid var(--line);border-bottom:none;padding:7px 4px calc(7px + env(safe-area-inset-bottom))}
-    nav.tabs button{flex:1;flex-direction:column;gap:3px;background:none;border:none;border-radius:0;
-      font-size:.64rem;padding:5px 0;color:var(--slate)}
-    nav.tabs button svg{width:23px;height:23px}
-    nav.tabs button.on{background:none;color:var(--persimmon-d)}
-    main{padding-bottom:calc(var(--nav-h) + 24px)}
-    .row{grid-template-columns:56px 4px 1fr;gap:11px}
-    footer{margin-bottom:var(--nav-h)}
+    .row{grid-template-columns:54px 4px 1fr;gap:11px}
+    .route{padding:16px 14px}
+    main{padding-bottom:30px}
   }
 </style>
 </head>
@@ -146,233 +203,463 @@
     <div class="eyebrow">Đoàn Hà Nội · 12 – 18 Tháng 7, 2026</div>
     <h1><em>AXGO &amp; WICO</em></h1>
     <div class="chips">
-      <span class="chip"><span class="dot d-axgo"></span>AXGO · <b>Sogang University</b> (Hongdae)</span>
+      <span class="chip"><span class="dot d-axgo"></span>AXGO · <b>Sogang University</b></span>
       <span class="chip"><span class="dot d-wico"></span>WICO · <b>SNUE</b></span>
-      <span class="chip"><span class="dot d-stay"></span>Lưu trú · <b>Hongdae</b></span>
-      <span class="chip"><span class="dot d-fly"></span>Nội Bài ↔ Incheon</span>
+      <span class="chip"><span class="dot d-stay"></span>Lưu trú · <b>JS Hotel</b> (Cheolsan)</span>
+      <span class="chip"><span class="dot d-fly"></span>Jeju Air · <b>HAN ↔ ICN</b></span>
     </div>
   </div>
 </header>
 
-<nav class="tabs">
-  <button class="on" data-tab="lich"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Lịch trình</button>
-  <button data-tab="see"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Tham quan</button>
-  <button data-tab="info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Thông tin</button>
-</nav>
+<div class="pills-wrap">
+  <div class="pills" id="pills"></div>
+</div>
 
-<main class="wrap">
-
-  <section class="tab active" id="tab-lich">
-    <div class="col">
-      <div class="pills" id="pills"></div>
-      <div id="dayhead"></div>
-      <div id="dayrows"></div>
-    </div>
-  </section>
-
-  <section class="tab" id="tab-see">
-    <div class="grp"><span class="pin" style="background:var(--jade)">1</span>
-      <div><h3>Chiều Ngày 1 — gần Hongdae</h3><p>Vừa bay đêm → chọn một điểm, không đi xa.</p></div></div>
-    <div class="cards" id="see1"></div>
-    <div class="grp"><span class="pin" style="background:var(--persimmon)">4</span>
-      <div><h3>Chiều Ngày 4 — trải nghiệm văn hóa</h3><p>Cụm Jongno đi bộ nối nhau, hoặc N Tower + Myeongdong.</p></div></div>
-    <div class="cards" id="see4"></div>
-    <div class="callout"><b>Lưu ý Gyeongbokgung:</b> cung đóng cửa thứ Ba, nhưng <b>16/07 là thứ Năm nên vẫn mở</b> (9:00–17:00). Mặc <b>hanbok thuê</b> được miễn phí vé vào.</div>
-    <div class="grp"><span class="pin" style="background:var(--indigo)">☂</span>
-      <div><h3>Dự phòng khi mưa</h3><p>Điểm trong nhà, đủ chơi cả buổi.</p></div></div>
-    <div class="cards" id="rain"></div>
-  </section>
-
-  <section class="tab" id="tab-info">
-    <div class="info-grid">
-      <div class="panel">
-        <h3>Chú thích màu hoạt động</h3>
-        <div class="legend">
-          <span><i class="bar-comp"></i>Thi đấu</span><span><i class="bar-meal"></i>Ăn uống</span>
-          <span><i class="bar-travel"></i>Di chuyển</span><span><i class="bar-see"></i>Tham quan</span>
-          <span><i class="bar-rest"></i>Nghỉ ngơi</span><span><i class="bar-doc"></i>Thủ tục</span>
-        </div>
-      </div>
-      <div class="panel">
-        <h3>Còn cần chốt</h3>
-        <ul class="todo">
-          <li>Giờ bay về ngày 18/07 (nên chuyến tối)</li>
-          <li>Lựa chọn cuối cho 2 buổi tham quan (Ngày 1 &amp; Ngày 4)</li>
-          <li>Xác nhận lịch chi tiết &amp; yêu cầu booth với BTC</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
+<main>
+  <div class="wrap"><div class="col" id="day-content"></div></div>
 </main>
 
-<footer>
-  <div class="wrap"><p>Lịch trình do đoàn cung cấp (AXGO 14–16/07, WICO 17–18/07). Giờ mở cửa các điểm có thể thay đổi — nên kiểm tra lại trước khi đi. Cần internet để phông chữ và bản đồ hiển thị.</p></div>
-</footer>
+<footer><p>Lịch trình do đoàn cung cấp (AXGO 14–16/07, WICO 17–18/07). Giờ tàu, giờ bus, giờ quán có thể thay đổi — kiểm tra lại trước khi đi. Cần internet để phông chữ và bản đồ hiển thị.</p></footer>
 
 <script>
-const itinerary = [
-  {wd:"CN", date:"12/07/2026", title:"Khởi hành từ Hà Nội", gist:"Tập kết & bay đêm sang Seoul", rows:[
-    {t:"19:00", type:"doc", act:"Điểm tập kết đoàn, kiểm tra giấy tờ, hộ chiếu, hành lý", note:"Đủ bộ: passport + visa + bản photo + giấy đồng ý của phụ huynh"},
-    {t:"19:15", type:"travel", act:"Di chuyển ra sân bay theo xe của BTC", note:"Điểm danh trước khi xe lăn bánh"},
-    {t:"20:15", type:"doc", act:"Check-in, ký gửi hành lý, làm thủ tục xuất cảnh", note:"Có mặt trước giờ bay tối thiểu 2h cho đoàn đông", where:"Sân bay Nội Bài (T2)"},
-    {t:"22:50", sub:"giờ VN", type:"fly", act:"Máy bay cất cánh đi Seoul", note:"Nhắc HS ngủ để giảm jet lag", where:"Nội Bài → Incheon"},
-  ]},
-  {wd:"T2", date:"13/07/2026", title:"Đến Seoul · Hongdae", gist:"Hạ cánh sáng, làm quen khu Hongdae", rows:[
-    {t:"06:30", type:"doc", act:"Hạ cánh Incheon, làm thủ tục nhập cảnh, lấy hành lý", note:"Khai e-Arrival Card (QR) trước khi bay; gom đoàn sau cửa ra", where:"Sân bay Incheon"},
-    {t:"07:00", type:"travel", act:"Di chuyển Incheon → khách sạn Hongdae", note:"Đặt xe đưa đón riêng cho 25 người + hành lý"},
-    {t:"08:30", type:"meal", act:"Gửi đồ tại khách sạn, ăn sáng tại Hongdae", note:"Phòng có thể chưa sẵn — gửi hành lý ở lễ tân", where:"Hongdae"},
-    {t:"09:30", type:"see", act:"Dạo chơi, mua sắm quanh khu Hongdae", note:"Chia nhóm nhỏ + buddy; hẹn giờ & điểm tập trung rõ", where:"Hongdae"},
-    {t:"11:30", type:"meal", act:"Ăn trưa, về nhận phòng, nghỉ ngơi", note:"Đặt nhà hàng trước; lưu ý suất chay/dị ứng", where:"Hongdae"},
-    {t:"15:00", type:"see", act:"Tham quan khám phá (xem tab Tham quan)", note:"Gợi ý gần Hongdae: Công viên đường ray Yeonnam hoặc ĐH Ewha. Có phương án trong nhà nếu mưa"},
-    {t:"19:00", type:"meal", act:"Ăn tối tại khu Hongdae", note:"Ngày bay đêm + jet lag → kết thúc sớm", where:"Hongdae"},
-    {t:"21:00", type:"rest", act:"Nghỉ ngơi tại khách sạn", note:"Sạc thiết bị thuyết trình (ổ 220V chân tròn)"},
-  ]},
-  {wd:"T3", date:"14/07/2026", title:"AXGO — Ngày 1", comp:"axgo", gist:"Khai mạc & phiên thuyết trình", rows:[
-    {t:"09:00", type:"meal", act:"Ăn sáng tại khu Hongdae", where:"Hongdae"},
-    {t:"10:00", type:"comp", act:"Đến điểm thi, check-in, dự lễ khai mạc, diễn giả giao lưu", note:"Sogang ngay trong Hongdae — đi bộ/đi xe ngắn. Mang thẻ dự thi", where:"Sogang University"},
-    {t:"12:00", type:"meal", act:"Ăn trưa, nghỉ ngơi", where:"Gần điểm thi"},
-    {t:"14:00", type:"comp", act:"Chuẩn bị gian hàng; phiên thuyết trình & vấn đáp", note:"Mang backup slide (USB + cloud); kiểm tra ổ điện/wifi tại booth", where:"Sogang University"},
-    {t:"17:00", type:"travel", act:"Kết thúc phiên ngày 1; về khách sạn nghỉ"},
-    {t:"18:30", type:"meal", act:"Tiệc Welcome Night của BTC", note:"Xác nhận BTC có bao gồm suất ăn cho cả đoàn không", where:"Hongdae"},
-    {t:"21:00", type:"rest", act:"Nghỉ ngơi tại khách sạn"},
-  ]},
-  {wd:"T4", date:"15/07/2026", title:"AXGO — Ngày 2", comp:"axgo", gist:"Thuyết trình & pitching trên sân khấu", rows:[
-    {t:"09:00", type:"meal", act:"Ăn sáng tại khu Hongdae", where:"Hongdae"},
-    {t:"10:00", type:"comp", act:"Đến điểm thi; phiên thuyết trình & vấn đáp ngày 2", where:"Sogang University"},
-    {t:"12:00", type:"meal", act:"Ăn trưa, nghỉ ngơi", where:"Gần điểm thi"},
-    {t:"14:00", type:"comp", act:"Phiên giới thiệu đề tài & pitching trên sân khấu", note:"Nhắc HS đến lượt; canh thời lượng theo yêu cầu BTC", where:"Sogang University"},
-    {t:"17:00", type:"travel", act:"Kết thúc ngày 2; về khách sạn"},
-    {t:"18:30", type:"see", act:"Ăn tối tại Hongdae; ngắm cảnh sông Hàn", note:"Phương án dự phòng nếu mưa", where:"Hongdae / Sông Hàn"},
-    {t:"22:00", type:"rest", act:"Nghỉ ngơi tại khách sạn"},
-  ]},
-  {wd:"T5", date:"16/07/2026", title:"AXGO — Trao giải · Chiều tự do", comp:"axgo", gist:"Bế mạc AXGO + tham quan", rows:[
-    {t:"09:00", type:"meal", act:"Ăn sáng tại khu Hongdae", where:"Hongdae"},
-    {t:"10:00", type:"comp", act:"Đến điểm thi; lễ trao giải & bế mạc AXGO", note:"Chuẩn bị máy ảnh; sắp xếp nhận chứng nhận/giải", where:"Sogang University"},
-    {t:"12:00", type:"meal", act:"Ăn trưa ở Hongdae", where:"Hongdae"},
-    {t:"13:00", type:"see", act:"Tham quan khám phá (xem tab Tham quan)", note:"Gợi ý: Gyeongbokgung + Bukchon + Insadong. Phương án trong nhà nếu mưa"},
-    {t:"18:30", type:"meal", act:"Ăn tối ở Hongdae", where:"Hongdae"},
-    {t:"21:00", type:"rest", act:"Nghỉ ngơi; chuẩn bị poster/booth cho WICO ngày mai"},
-  ]},
-  {wd:"T6", date:"17/07/2026", title:"WICO — Ngày thi", comp:"wico", gist:"Thuyết trình & vấn đáp tại SNUE", rows:[
-    {t:"07:30", type:"meal", act:"Ăn sáng tại khu Hongdae", note:"Xuất phát sớm — SNUE cách Hongdae ~45–55 phút", where:"Hongdae"},
-    {t:"08:30", type:"travel", act:"Di chuyển đến điểm thi WICO", note:"Xe đưa đón riêng; cộng thời gian đệm giờ cao điểm", where:"Xe riêng → SNUE"},
-    {t:"09:00", type:"comp", act:"Chuẩn bị poster, booth thuyết trình", note:"In/mang poster dự phòng; kiểm tra vị trí gian, ổ điện", where:"SNUE"},
-    {t:"10:00", type:"comp", act:"Phiên thuyết trình & vấn đáp buổi sáng", where:"SNUE"},
-    {t:"12:00", type:"meal", act:"Nghỉ trưa", note:"Khảo sát quán ăn gần SNUE trước (khác khu Hongdae)", where:"SNUE / gần đó"},
-    {t:"13:00", type:"comp", act:"Phiên thuyết trình & vấn đáp buổi chiều", where:"SNUE"},
-    {t:"17:00", type:"travel", act:"Di chuyển về khách sạn nghỉ ngơi", where:"Xe riêng → Hongdae"},
-    {t:"18:30", type:"meal", act:"Ăn tối ở Hongdae", where:"Hongdae"},
-    {t:"21:00", type:"rest", act:"Nghỉ ngơi; soạn hành lý trước (hôm sau trả phòng)"},
-  ]},
-  {wd:"T7", date:"18/07/2026", title:"WICO — Bế mạc · Về nước", comp:"wico", gist:"Trao giải WICO rồi ra sân bay", rows:[
-    {t:"09:00", type:"travel", act:"Ăn sáng; trả phòng khách sạn (ký gửi hành lý ở lễ tân)", where:"Khách sạn"},
-    {t:"10:00", type:"comp", act:"Đến SNUE dự lễ trao giải + bế mạc WICO", note:"Mang theo hành lý hoặc nhờ KS giữ; chốt phương án ra sân bay", where:"Xe riêng → SNUE"},
-    {t:"13:00", type:"travel", act:"Ăn trưa; di chuyển ra sân bay Incheon", note:"⚠ CHỐT GIỜ BAY VỀ: nên là chuyến tối. Có mặt sân bay trước 3h", where:"SNUE → Incheon"},
-    {t:"(?)", type:"fly", act:"Làm thủ tục, ký gửi hành lý, bay về Hà Nội", note:"Điền giờ bay về thực tế khi có vé", where:"Sân bay Incheon"},
-  ]},
+const days = [
+  {date:"12/07/2026", wd:"CN", title:"Khởi hành từ Hà Nội", gist:"Tập kết & chuyến bay đêm muộn 00:45 (13/07)",
+    schedule:[
+      {t:"20:30", type:"doc", act:"Điểm tập kết đoàn, kiểm tra giấy tờ, hộ chiếu, hành lý", note:"Đủ bộ: passport + visa + bản photo + giấy đồng ý của phụ huynh"},
+      {t:"20:45", type:"travel", act:"Di chuyển ra sân bay theo xe của BTC", note:"Điểm danh trước khi xe lăn bánh"},
+      {t:"21:45", type:"doc", act:"Có mặt sân bay Nội Bài; check-in, ký gửi hành lý", note:"Quầy Jeju Air mở 2–3h trước chuyến bay", where:"Nội Bài (T2)"},
+      {t:"23:50", type:"fly", act:"Lên máy bay (boarding)", note:"Boarding thường mở ~40 phút trước cất cánh"},
+      {t:"00:45", sub:"giờ VN, 13/07", type:"fly", act:"Máy bay Jeju Air 7C2202 cất cánh đi Seoul", note:"Bay 4g 50; nhắc HS ngủ để giảm jet lag", where:"Nội Bài → Incheon"},
+    ]},
+
+  {date:"13/07/2026", wd:"T2", title:"Đến Seoul · về khách sạn", gist:"Hạ cánh sáng, di chuyển về Gwangmyeong",
+    schedule:[
+      {t:"07:35", type:"doc", act:"Hạ cánh Incheon, nhập cảnh, lấy hành lý ký gửi", note:"Khai e-Arrival Card (QR) trước khi bay; gom đoàn sau cửa ra", where:"Sân bay Incheon"},
+      {t:"09:00", type:"travel", act:"Bắt Airport Limousine Bus 6014 → Cheolsan Station", note:"Bus dừng ngay Cheolsan, đi bộ 3–5p về KS. Vé 16.000₩/người", expand:{kind:"route", id:"icn2hotel"}},
+      {t:"10:30", type:"rest", act:"Đến khách sạn, gửi hành lý, nghỉ ngơi nhẹ", note:"Phòng có thể chưa sẵn — gửi hành lý ở lễ tân. Đoàn vừa bay đêm, không nên ép lịch nặng", where:"JS Hotel"},
+      {t:"12:30", type:"meal", act:"Ăn trưa quanh khách sạn", where:"Cheolsan", expand:{kind:"meal", slot:"lunch"}},
+      {t:"14:30", type:"see", act:"Tham quan khám phá", note:"Vừa bay đêm → chọn một điểm, không đi xa", expand:{kind:"sights", id:"see1"}},
+      {t:"19:00", type:"meal", act:"Ăn tối quanh khách sạn", where:"Cheolsan", expand:{kind:"meal", slot:"dinner"}},
+      {t:"21:00", type:"rest", act:"Nghỉ ngơi tại khách sạn", note:"Sạc thiết bị thuyết trình (ổ 220V chân tròn)"},
+    ],
+    meals:{
+      lunch:[
+        {n:"백세밥상 (Baekse Bapsang)", sub:"Set cơm Hàn truyền thống", r:"4.0", price:"~18k", desc:"15+ banchan refill miễn phí, không gian rộng dễ phục vụ đoàn lớn. Lý tưởng sau bay đêm.", hrs:"11:00–21:00 mỗi ngày", ll:[37.4524556,126.8647922], cid:"15000040716180553367"},
+        {n:"Cheolsan Myeongga Cauldron Table", sub:"Cơm gốm nấu tại bàn", r:"4.0", price:"~22k", desc:"Cơm nấu trong nồi gang tại bàn + banchan truyền thống. Specialty cá đặt tại Cheolsan.", hrs:"11:30–22:00 mỗi ngày", ll:[37.4882924,126.8695379], cid:"8146957260470125039"},
+      ],
+      dinner:[
+        {n:"양꼬치대장 (Yangkkochi Daejang)", sub:"Lamb skewers + món Trung", r:"4.9", price:"~30k", desc:"Lamb skewers tươi không hôi, mapo tofu cay đậm đà. Ngay Cheolsan Exit 1, sau Hi-Mart.", hrs:"13:00–24:00 mỗi ngày", ll:[37.4756085,126.8690288], cid:"15375068814091525846"},
+        {n:"코리안숯불등갈비 (Korean Charcoal Back Ribs)", sub:"Sườn nướng than đặc sản", r:"4.7", price:"~35k", desc:"Sườn heo nướng than hoa, top 3 quán đặc sản Cheolsan-dong. Không gian mộc mạc.", hrs:"Kiểm tra trước khi đến", ll:[37.4744212,126.8696163], cid:"14572197497470156100"},
+      ],
+    }},
+
+  {date:"14/07/2026", wd:"T3", title:"AXGO — Ngày 1", comp:"axgo", gist:"Khai mạc & phiên thuyết trình tại Sogang",
+    schedule:[
+      {t:"07:30", type:"meal", act:"Ăn sáng tại khách sạn", where:"JS Hotel"},
+      {t:"08:30", type:"travel", act:"Di chuyển KS → Sogang University (~50 phút)", where:"Tàu điện", expand:{kind:"route", id:"hotel2sogang"}},
+      {t:"09:30", type:"comp", act:"Đến Sogang, check-in, dự lễ khai mạc, diễn giả giao lưu", note:"Mang thẻ dự thi", where:"Sogang University"},
+      {t:"12:00", type:"meal", act:"Ăn trưa gần điểm thi", where:"Hongdae/Sinchon", expand:{kind:"meal", slot:"lunch"}},
+      {t:"14:00", type:"comp", act:"Chuẩn bị gian hàng; phiên thuyết trình & vấn đáp", note:"Mang backup slide (USB + cloud); kiểm tra ổ điện/wifi tại booth", where:"Sogang University"},
+      {t:"17:30", type:"meal", act:"Tiệc Welcome Night của BTC AXGO", where:"Khu Hongdae", expand:{kind:"welcome"}},
+      {t:"20:00", type:"travel", act:"Về khách sạn (tàu Line 7 cuối khoảng 23:30)", note:"Kết thúc trước 22:30 để bắt được tàu cuối Cheolsan"},
+      {t:"21:30", type:"rest", act:"Nghỉ ngơi tại khách sạn"},
+    ],
+    meals:{
+      lunch:[
+        {n:"Gonaengji (고냉지)", sub:"Kimchi jjigae + bibimbap", r:"4.3", price:"~14k", desc:"Kimchi jjigae kèm cơm gốm trộn thành bibimbap, có bossam. Quán nhỏ, khách địa phương đông.", hrs:"9:30–21:30 · đóng T2", ll:[37.5584729,126.9421968], cid:"12099527625014902002"},
+        {n:"Gosame (고사메)", sub:"Cá thu nướng + canh đậu hũ · Halal", r:"4.5", price:"~15k", desc:"Set cơm cá thu nướng, mực xào cay, soft tofu stew. Halal certified — phù hợp HS không ăn thịt heo.", hrs:"11:00–14:30, 16:30–20:40", ll:[37.5583636,126.9347281], cid:"17085989080611115620"},
+      ],
+    },
+    welcomeNote:"<b>Welcome Night của BTC AXGO</b> tại Hongdae — BTC chi (xác nhận trước với BTC có bao gồm suất ăn cho cả đoàn không). Kết thúc trước 22:30 để bắt tàu Line 7 cuối về Cheolsan (~23:30)."},
+
+  {date:"15/07/2026", wd:"T4", title:"AXGO — Ngày 2 + Banpo", comp:"axgo", gist:"Thuyết trình & pitching · tối ngắm cầu vồng Banpo",
+    schedule:[
+      {t:"07:30", type:"meal", act:"Ăn sáng tại khách sạn", where:"JS Hotel"},
+      {t:"08:30", type:"travel", act:"Di chuyển KS → Sogang (~50 phút)", note:"Line 7 → Line 2 (như Ngày 14/07)"},
+      {t:"09:30", type:"comp", act:"Đến Sogang, phiên thuyết trình & vấn đáp ngày 2", where:"Sogang University"},
+      {t:"12:00", type:"meal", act:"Ăn trưa tại Hongdae", where:"Hongdae", expand:{kind:"meal", slot:"lunch"}},
+      {t:"14:00", type:"comp", act:"Phiên giới thiệu đề tài & pitching trên sân khấu", note:"Nhắc HS đến lượt; canh thời lượng theo yêu cầu BTC", where:"Sogang University"},
+      {t:"17:30", type:"travel", act:"Di chuyển đến Banpo Hangang Park", note:"Line 7 thẳng đến Express Bus Terminal hoặc Line 2/Line 9", where:"Banpo"},
+      {t:"18:30", type:"meal", act:"Ăn tối tại Banpo", where:"Banpo", expand:{kind:"meal", slot:"dinner"}},
+      {t:"20:00", type:"see", act:"Ngắm cảnh sông Hàn + Banpo Bridge", note:"Show đài phun nước cầu vồng (Moonlight Rainbow Fountain)", where:"Banpo Hangang Park"},
+      {t:"21:30", type:"travel", act:"Về khách sạn"},
+      {t:"22:30", type:"rest", act:"Nghỉ ngơi tại khách sạn"},
+    ],
+    meals:{
+      lunch:[
+        {n:"bb.q Chicken Hongdae", sub:"Gà rán Hàn (Golden Olive, Yangnyeom...)", r:"4.9", price:"~25k", desc:"Order qua tablet tiếng Anh, 1 con chia 2–3 người → đoàn ~10 con + sides. Đi bộ ~20p từ Sogang qua phố Hongdae.", hrs:"10:00–6:00 hôm sau", ll:[37.5550375,126.9230599], cid:"7321472049557747538"},
+      ],
+      dinner:[
+        {n:"산들해 반포점 (Sandeulhae Banpo)", sub:"Set cơm Hàn AYCE", r:"3.9", price:"16k", desc:"Set cơm Hàn truyền thống — refill tất cả banchan + món chính (bossam, soy crab...). Hầm rộng, nhận đoàn lớn. Đi bộ ~10p tới Banpo Bridge ngắm cầu vồng sau ăn.", hrs:"11:10–15:00, 17:00–20:50", ll:[37.5042371,127.0010801], cid:"15445443728957389398"},
+      ],
+    }},
+
+  {date:"16/07/2026", wd:"T5", title:"AXGO — Trao giải · Chiều văn hóa", comp:"axgo", gist:"Bế mạc AXGO + tham quan Jongno",
+    schedule:[
+      {t:"07:30", type:"meal", act:"Ăn sáng tại khách sạn", where:"JS Hotel"},
+      {t:"08:30", type:"travel", act:"Di chuyển KS → Sogang (~50 phút)", note:"Line 7 → Line 2 (như Ngày 14/07)"},
+      {t:"09:30", type:"comp", act:"Đến Sogang, dự lễ trao giải & bế mạc AXGO", note:"Chuẩn bị máy ảnh; sắp xếp nhận chứng nhận/giải", where:"Sogang University"},
+      {t:"12:00", type:"meal", act:"Ăn trưa gần Sogang/Hongdae", where:"Hongdae", expand:{kind:"meal", slot:"lunch"}},
+      {t:"13:30", type:"see", act:"Tham quan văn hóa", note:"Cụm Jongno đi bộ nối nhau, hoặc N Tower + Myeongdong", expand:{kind:"sights", id:"see4"}},
+      {t:"18:30", type:"meal", act:"Ăn tối tại Insadong/Myeongdong", expand:{kind:"meal", slot:"dinner"}},
+      {t:"20:30", type:"travel", act:"Về khách sạn", note:"Chuẩn bị poster/booth cho WICO ngày mai"},
+      {t:"22:00", type:"rest", act:"Nghỉ ngơi tại khách sạn"},
+    ],
+    meals:{
+      lunch:[
+        {n:"Bebab Bibimbap Hongdae", sub:"Bibimbap + canh đậu hũ", r:"4.9", price:"~15k", desc:"Tablet tiếng Anh order siêu nhanh, vegan options rõ ràng. Phục vụ nhanh — kịp giờ đi Insadong chiều.", hrs:"11:00–15:30, 16:30–19:45", ll:[37.5528880,126.9237350], cid:"2992842495773998696"},
+        {n:"Kim Gwangseok Sinchon Kalguksu", sub:"Kalguksu nấm cay 1 menu duy nhất", r:"4.3", price:"~13k", desc:"Hot pot kalguksu nấm + cơm chiên vòng 2 cuối bữa. No bụng, không cần chọn món, phục vụ siêu nhanh.", hrs:"9:00–23:00 (T7-CN 10:00–22:00)", ll:[37.5556595,126.9394368], cid:"17725983252569904108"},
+      ],
+      dinner:[
+        {n:"인사동 안집 (Insadong Anjib)", sub:"Bibimbap truyền thống + thịt nướng", r:"5.0", price:"~25k", desc:"Bibimbap lúa mạch với 나물 đa dạng, không gian hanok ấm cúng. Đánh giá hoàn hảo nhiều review.", hrs:"11:00–23:00 mỗi ngày", ll:[37.5749283,126.9855551], cid:"3932527841999241648"},
+        {n:"불탄왕뽐구이&감자탕 명동점", sub:"Sườn nướng + canh xương khoai · Myeongdong", r:"4.9", price:"~35k", desc:"Phương án thay thế tại Myeongdong (cách Insadong ~10p tàu). English menu, phục vụ nhanh, bibimbap kèm theo set.", hrs:"11:00–23:00 mỗi ngày", ll:[37.5611959,126.9834094], cid:"8541612893568770485"},
+      ],
+    }},
+
+  {date:"17/07/2026", wd:"T6", title:"WICO — Ngày thi", comp:"wico", gist:"Thuyết trình & vấn đáp tại SNUE (Seocho)",
+    schedule:[
+      {t:"07:00", type:"meal", act:"Ăn sáng tại khách sạn", note:"Xuất phát sớm — SNUE cách KS ~60 phút", where:"JS Hotel"},
+      {t:"08:00", type:"travel", act:"Di chuyển KS → SNUE (~55 phút)", where:"Tàu điện", expand:{kind:"route", id:"hotel2snue"}},
+      {t:"09:00", type:"comp", act:"Đến SNUE, chuẩn bị poster, booth thuyết trình", note:"In/mang poster dự phòng; kiểm tra vị trí gian, ổ điện", where:"SNUE"},
+      {t:"10:00", type:"comp", act:"Phiên thuyết trình & vấn đáp buổi sáng", where:"SNUE"},
+      {t:"12:00", type:"meal", act:"Nghỉ trưa quanh SNUE/Gangnam", where:"Seocho", expand:{kind:"meal", slot:"lunch"}},
+      {t:"13:00", type:"comp", act:"Phiên thuyết trình & vấn đáp buổi chiều", where:"SNUE"},
+      {t:"17:00", type:"travel", act:"Di chuyển về khách sạn (~60 phút)"},
+      {t:"18:30", type:"meal", act:"Ăn tối quanh khách sạn", where:"Cheolsan", expand:{kind:"meal", slot:"dinner"}},
+      {t:"21:00", type:"rest", act:"Nghỉ ngơi; soạn hành lý trước (hôm sau trả phòng)"},
+    ],
+    meals:{
+      lunch:[
+        {n:"1992덮밥&짜글이 강남점", sub:"Bibimbap + canh, không gian hanok", r:"4.8", price:"~15k", desc:"Kiosk tiếng Anh, kimchi stew + bibimbap. Sạch, gọn, phục vụ rất nhanh — phù hợp giờ nghỉ trưa giữa 2 phiên thi.", hrs:"10:30–22:30 (T7-CN 10:00–22:00)", ll:[37.4964527,127.0291287], cid:"16881502039872453934"},
+      ],
+      dinner:[
+        {n:"양꼬치대장 (Yangkkochi Daejang)", sub:"Lamb skewers · Cheolsan", r:"4.9", price:"~30k", desc:"Quay lại quán quen Cheolsan sau ngày dài thi. Gần KS đi bộ ~5p.", hrs:"13:00–24:00 mỗi ngày", ll:[37.4756085,126.8690288], cid:"15375068814091525846"},
+        {n:"코리안숯불등갈비 (Korean Charcoal Back Ribs)", sub:"Sườn nướng than · Cheolsan", r:"4.7", price:"~35k", desc:"Phương án thay thế nếu đã ăn lamb hôm 13/7.", hrs:"Kiểm tra trước", ll:[37.4744212,126.8696163], cid:"14572197497470156100"},
+      ],
+    }},
+
+  {date:"18/07/2026", wd:"T7", title:"WICO — Bế mạc · Về nước", comp:"wico", gist:"Trao giải WICO → Bus 6016 ra ICN → bay 20:40",
+    schedule:[
+      {t:"07:30", type:"meal", act:"Ăn sáng tại khách sạn", where:"JS Hotel"},
+      {t:"08:30", type:"doc", act:"Trả phòng; cả đoàn mang hành lý theo người", note:"Tránh giờ cao điểm tàu 8–9h"},
+      {t:"09:30", type:"travel", act:"Tàu Cheolsan → Gyodae (mang hành lý)", note:"Line 7 → Line 2 · ~55 phút · chia nhóm + buddy giữ vali", where:"Tàu điện", expand:{kind:"route", id:"hotel2snue"}},
+      {t:"10:30", type:"comp", act:"Đến SNUE; gửi hành lý tại sảnh; dự lễ trao giải + bế mạc WICO", where:"SNUE"},
+      {t:"13:00", type:"meal", act:"Ăn trưa quanh SNUE; lấy hành lý ra điểm đón bus", where:"Seocho", expand:{kind:"meal", slot:"lunch"}},
+      {t:"14:30", type:"travel", act:"Bắt Airport Limousine Bus 6016 tại SNUE → ICN", note:"Vé 16.000₩/người. ~70–90 phút. SNUE là đầu tuyến", where:"SNUE → ICN", expand:{kind:"route", id:"snue2icn"}},
+      {t:"16:00", type:"doc", act:"Đến sân bay Incheon, làm thủ tục, ký gửi hành lý", note:"Có mặt sân bay tối thiểu 3h trước cho đoàn đông", where:"Sân bay Incheon"},
+      {t:"19:30", type:"fly", act:"Lên máy bay (boarding)"},
+      {t:"20:40", type:"fly", act:"Jeju Air 7C2201 cất cánh về Hà Nội", note:"Bay 5g 05", where:"Incheon → Nội Bài"},
+      {t:"23:45", sub:"giờ VN", type:"fly", act:"Hạ cánh Nội Bài, kết thúc chuyến đi", where:"Nội Bài"},
+    ],
+    meals:{
+      lunch:[
+        {n:"1992덮밥&짜글이 강남점", sub:"Bibimbap + canh", r:"4.8", price:"~18k", desc:"Sau bế mạc WICO, ăn nhanh-gọn rồi kịp bắt Bus 6016 14:30 ra sân bay. Quán mở cuối tuần.", hrs:"10:00–22:00 cuối tuần", ll:[37.4964527,127.0291287], cid:"16881502039872453934"},
+      ],
+    }},
 ];
 
-const places = {
-  see1:[
-    {cls:"see1", name:"Gyeongui Line Forest Park", badges:[["free","Miễn phí"],["","Mở 24/7"],["","Đi bộ từ Hongdae"]], desc:"Công viên đường ray cũ ở Yeonnam-dong — đi dạo thư giãn, nhiều quán cà phê dọc đường. Hợp khi đoàn còn mệt.", hours:"Mở cả ngày", map:"https://maps.google.com/?cid=596598216682399268"},
-    {cls:"see1", name:"Đại học Ewha (ECC)", badges:[["free","Miễn phí"],["","~10 phút"],["","Khuôn viên ĐH"]], desc:"Kiến trúc 'thung lũng kính' ECC nổi tiếng, khuôn viên đẹp. Thuộc cụm 3 đại học Sogang–Yonsei–Ewha — ý nghĩa với đoàn thi khoa học.", hours:"Khuôn viên mở ban ngày", map:"https://maps.google.com/?cid=4208576737096431169"},
-  ],
-  see4:[
-    {cls:"see4", name:"Gyeongbokgung Palace", badges:[["","Cung điện"],["","Hanbok = miễn phí vé"]], desc:"Cung điện hoàng gia lớn nhất Seoul. Điểm khởi đầu cho tuyến văn hoá Jongno.", hours:"9:00–17:00 · đóng thứ Ba (16/7 thứ Năm: mở)", map:"https://maps.google.com/?cid=10029593693201569270"},
-    {cls:"see4", name:"Bukchon Hanok Village", badges:[["","Đi bộ tới"],["","Làng nhà cổ"]], desc:"Làng hanok truyền thống, ngõ nhỏ đẹp. Là khu dân cư đang ở → nhắc HS giữ trật tự.", hours:"Tham quan 10:00–17:00", map:"https://maps.google.com/?cid=14824929312700491162"},
-    {cls:"see4", name:"Insadong", badges:[["","Cạnh Bukchon"],["","Thủ công · trà đạo"]], desc:"Phố đồ thủ công mỹ nghệ, quà lưu niệm truyền thống. Khép lại tuyến đi bộ Jongno.", hours:"Cửa hàng mở ban ngày", map:"https://maps.google.com/?cid=5601897440755213732"},
-    {cls:"see4", name:"N Seoul Tower (Namsan)", badges:[["","Phương án thay thế"],["","Ngắm toàn cảnh"]], desc:"Tháp ngắm cảnh Seoul, đẹp lúc hoàng hôn. Nên đi cáp treo thay vì leo bộ với đoàn 25.", hours:"10:30–22:30", map:"https://maps.google.com/?cid=6699200636580889253"},
-    {cls:"see4", name:"Myeongdong", badges:[["","Ghép với N Tower"],["","Mua sắm · ăn vặt"]], desc:"Phố mua sắm mỹ phẩm, đồ ăn đường phố sầm uất. Rất đông buổi tối.", hours:"Mở cả ngày", map:"https://maps.google.com/?cid=10082373807167163503"},
-  ],
-  rain:[
-    {cls:"rain", name:"Bảo tàng Quốc gia Hàn Quốc", badges:[["free","Miễn phí"],["indoor","Trong nhà"],["","Tốt nhất cho HS"]], desc:"Bảo tàng quy mô lớn, tính giáo dục cao, đủ chơi 2–3 tiếng. Lựa chọn dự phòng mưa tốt nhất cho đoàn.", hours:"9:30–17:30 (Tư & Bảy đến 20:30)", map:"https://maps.google.com/?cid=7017319361445515495"},
-    {cls:"rain", name:"Dongdaemun Design Plaza (DDP)", badges:[["indoor","Trong nhà"],["","Kiến trúc"]], desc:"Công trình tương lai của Zaha Hadid, có triển lãm và cửa hàng thiết kế. Gần ga tàu.", hours:"10:00–20:00", map:"https://maps.google.com/?cid=6639054745590107100"},
-    {cls:"rain", name:"Starfield Library (COEX)", badges:[["indoor","Trong nhà"],["","Gangnam ~45 phút"]], desc:"Thư viện khổng lồ trong TTTM COEX (có thủy cung, rạp phim, ăn uống). Xa hơn nhưng kín mưa cả ngày.", hours:"10:30–22:00", map:"https://maps.google.com/?cid=3143025846765073303"},
-  ]
-};
-const coords = {
-  "Gyeongui Line Forest Park":[37.5662075,126.9192364],"Đại học Ewha (ECC)":[37.5617981,126.9470992],
-  "Gyeongbokgung Palace":[37.579617,126.977041],"Bukchon Hanok Village":[37.5814696,126.9849519],
-  "Insadong":[37.5717174,126.9860732],"N Seoul Tower (Namsan)":[37.5511694,126.9888266],
-  "Myeongdong":[37.5641885,126.986118],"Bảo tàng Quốc gia Hàn Quốc":[37.5238506,126.9804702],
-  "Dongdaemun Design Plaza (DDP)":[37.5665256,127.0092236],"Starfield Library (COEX)":[37.5100586,127.0601188]
+const allRoutes = {
+  icn2hotel:{cls:"r-arr", title:"Sân bay Incheon → Khách sạn",
+    total:"~70–90 phút · 16.000₩/người", rec:"BUS 6014", recCls:"rec-bus",
+    steps:[
+      {cls:"bus", n:"🚌", what:"Bắt Airport Limousine Bus 6014 tại sân bay Incheon", det:"Tuyến: Incheon Airport T1/T2 → Gimpo Airport → Gaebong → <b>Cheolsan</b> → Gwangmyeong KTX. Bến đỗ ngoài sảnh đến."},
+      {cls:"line7", n:"📍", what:"Xuống tại Cheolsan Station (Bus Stop No. 1402)", det:"~70 phút từ ICN T1. Vé 16.000₩/người."},
+      {cls:"walk", n:"🚶", what:"Đi bộ → JS Boutique Hotel", det:"~3–5 phút"},
+      {cls:"arrive", n:"🏨", what:"Đến khách sạn", det:"Gửi hành lý lễ tân nếu phòng chưa sẵn"},
+    ],
+    tip:"<b>Tần suất bus:</b> ~30–40 phút/chuyến từ 4:25 sáng đến 20:00. Đoàn hạ cánh 7:35 → có thể bắt bus rời ICN khoảng 8:30–9:00."},
+  hotel2sogang:{cls:"r-axgo", title:"Khách sạn → Sogang University",
+    total:"~50 phút · ~22 km · ~1.500₩/người", rec:"TÀU ĐIỆN", recCls:"rec-sub",
+    steps:[
+      {cls:"walk", n:"🚶", what:"Đi bộ KS → ga Cheolsan (철산역)", det:"~3–5 phút"},
+      {cls:"line7", n:"7", what:'<span class="badge-line b-l7">Line 7</span> Cheolsan → Daerim (대림)', det:"5 ga · ~12 phút · hướng Sangbong"},
+      {cls:"line2", n:"2", what:'Đổi <span class="badge-line b-l2">Line 2</span> tại Daerim → Sinchon (신촌)', det:"7 ga · ~17 phút · hướng Seongsu (Inner Circle)"},
+      {cls:"walk", n:"🚶", what:"Đi bộ ga Sinchon → Sogang University", det:"~12 phút"},
+      {cls:"arrive", n:"🎓", what:"Đến Sogang University", det:"Tổng ~50 phút từ khách sạn"},
+    ],
+    tip:"<b>Tàu cuối Line 7 chiều về Cheolsan ~23:30.</b> Tuyến này dùng chung cho cả 3 ngày AXGO (14, 15, 16/07)."},
+  hotel2snue:{cls:"r-wico", title:"Khách sạn → SNUE",
+    total:"~55 phút · ~24 km · ~1.500₩/người", rec:"TÀU ĐIỆN", recCls:"rec-sub",
+    steps:[
+      {cls:"walk", n:"🚶", what:"Đi bộ KS → ga Cheolsan (철산역)", det:"~3–5 phút"},
+      {cls:"line7", n:"7", what:'<span class="badge-line b-l7">Line 7</span> Cheolsan → Daerim (대림)', det:"5 ga · ~12 phút · hướng Sangbong"},
+      {cls:"line2", n:"2", what:'Đổi <span class="badge-line b-l2">Line 2</span> tại Daerim → SNUE (교대역, Gyodae)', det:"7 ga · ~17 phút · hướng Seongsu hoặc Outer Circle"},
+      {cls:"walk", n:"🚶", what:"Đi bộ ga Gyodae (Exit 9/10) → SNUE", det:"~5 phút"},
+      {cls:"arrive", n:"🎓", what:"Đến SNUE", det:"Tổng ~55 phút từ khách sạn"},
+    ],
+    tip:"<b>Ngày 18/07 mang hành lý:</b> đi tàu giờ sáng sau 9:30 đỡ đông, chia nhóm + buddy giữ vali. SNUE có khu gửi đồ tại sảnh sự kiện."},
+  snue2icn:{cls:"r-dep", title:"SNUE → Sân bay Incheon",
+    total:"~70–90 phút · 16.000₩/người", rec:"BUS 6016", recCls:"rec-bus",
+    steps:[
+      {cls:"bus", n:"🚌", what:"Bắt Airport Limousine Bus 6016 ngay tại SNUE", det:"Tuyến: <b>Seoul Nat'l Univ. of Education</b> → Sadang → Isu → Heukseok → ICN. Đây là đầu tuyến."},
+      {cls:"line2", n:"📍", what:"Bus chạy thẳng đến Incheon Airport T1/T2", det:"~70 phút (có thể tới 90+ phút nếu tắc giờ chiều). Vé 16.000₩/người."},
+      {cls:"arrive", n:"✈️", what:"Đến sân bay Incheon", det:"Check-in Jeju Air 7C2201 → boarding 19:30 → bay 20:40"},
+    ],
+    tip:"<b>Khởi hành SNUE ~14:30</b> để có mặt ICN 16:00 (trước bay 4h). Hành lý đã mang theo từ sáng → không cần quay về KS."},
 };
 
-// ---- day pills + detail ----
+const allPlaces = {
+  see1:{rain:true, items:[
+    {cls:"see1", name:"Gyeongui Line Forest Park", badges:[["free","Miễn phí"],["","Mở 24/7"],["","~50p tàu"]], desc:"Công viên đường ray cũ ở Yeonnam-dong — đi dạo thư giãn, nhiều quán cà phê dọc đường.", hours:"Mở cả ngày", ll:[37.5662075,126.9192364], cid:"596598216682399268"},
+    {cls:"see1", name:"Đại học Ewha (ECC)", badges:[["free","Miễn phí"],["","~50p tàu"],["","Khuôn viên ĐH"]], desc:"Kiến trúc 'thung lũng kính' ECC nổi tiếng, khuôn viên đẹp. Thuộc cụm 3 đại học Sogang–Yonsei–Ewha.", hours:"Khuôn viên mở ban ngày", ll:[37.5617981,126.9470992], cid:"4208576737096431169"},
+    {cls:"see1", name:"Outlet Cheolsan-dong", badges:[["","Đi bộ từ KS"],["","Gần"]], desc:"Khu mua sắm và outlet ngay cạnh khách sạn. Phương án nhẹ nhàng nhất cho ngày đầu vừa hạ cánh.", hours:"10:30–21:00", ll:[37.4759,126.8682], cid:""},
+  ]},
+  see4:{rain:true, calloutBefore:"<b>Lưu ý Gyeongbokgung:</b> cung đóng cửa thứ Ba, nhưng <b>16/07 là thứ Năm nên vẫn mở</b> (9:00–17:00). Mặc <b>hanbok thuê</b> được miễn phí vé vào.",
+    items:[
+      {cls:"see4", name:"Gyeongbokgung Palace", badges:[["","Cung điện"],["","Hanbok = miễn phí vé"]], desc:"Cung điện hoàng gia lớn nhất Seoul. Điểm khởi đầu cho tuyến văn hoá Jongno.", hours:"9:00–17:00 · đóng thứ Ba (16/7 thứ Năm: mở)", ll:[37.579617,126.977041], cid:"10029593693201569270"},
+      {cls:"see4", name:"Bukchon Hanok Village", badges:[["","Đi bộ tới"],["","Làng nhà cổ"]], desc:"Làng hanok truyền thống, ngõ nhỏ đẹp. Là khu dân cư đang ở → nhắc HS giữ trật tự.", hours:"Tham quan 10:00–17:00", ll:[37.5814696,126.9849519], cid:"14824929312700491162"},
+      {cls:"see4", name:"Insadong", badges:[["","Cạnh Bukchon"],["","Thủ công"]], desc:"Phố đồ thủ công mỹ nghệ, quà lưu niệm truyền thống. Khép lại tuyến đi bộ Jongno.", hours:"Cửa hàng mở ban ngày", ll:[37.5717174,126.9860732], cid:"5601897440755213732"},
+      {cls:"see4", name:"N Seoul Tower (Namsan)", badges:[["","Phương án thay thế"],["","Ngắm toàn cảnh"]], desc:"Tháp ngắm cảnh Seoul, đẹp lúc hoàng hôn. Nên đi cáp treo thay vì leo bộ với đoàn 25.", hours:"10:30–22:30", ll:[37.5511694,126.9888266], cid:"6699200636580889253"},
+      {cls:"see4", name:"Myeongdong", badges:[["","Ghép với N Tower"],["","Mua sắm"]], desc:"Phố mua sắm mỹ phẩm, đồ ăn đường phố sầm uất. Rất đông buổi tối.", hours:"Mở cả ngày", ll:[37.5641885,126.986118], cid:"10082373807167163503"},
+    ]},
+};
+
+const rainPlaces = [
+  {cls:"rain", name:"Bảo tàng Quốc gia Hàn Quốc", badges:[["free","Miễn phí"],["indoor","Trong nhà"],["","Tốt nhất cho HS"]], desc:"Bảo tàng quy mô lớn, tính giáo dục cao, đủ chơi 2–3 tiếng. Lựa chọn dự phòng mưa tốt nhất cho đoàn.", hours:"9:30–17:30 (Tư & Bảy đến 20:30)", ll:[37.5238506,126.9804702], cid:"7017319361445515495"},
+  {cls:"rain", name:"Dongdaemun Design Plaza (DDP)", badges:[["indoor","Trong nhà"],["","Kiến trúc"]], desc:"Công trình tương lai của Zaha Hadid, có triển lãm và cửa hàng thiết kế. Gần ga tàu.", hours:"10:00–20:00", ll:[37.5665256,127.0092236], cid:"6639054745590107100"},
+  {cls:"rain", name:"Starfield Library (COEX)", badges:[["indoor","Trong nhà"],["","Gangnam ~45 phút"]], desc:"Thư viện khổng lồ trong TTTM COEX. Xa hơn nhưng kín mưa cả ngày.", hours:"10:30–22:00", ll:[37.5100586,127.0601188], cid:"3143025846765073303"},
+];
+
 const pills=document.getElementById('pills');
-const dhead=document.getElementById('dayhead');
-const drows=document.getElementById('dayrows');
-itinerary.forEach((d,i)=>{
+const content=document.getElementById('day-content');
+let mapId=0;
+
+days.forEach((d,i)=>{
   const b=document.createElement('div');
   b.className='pill'+(i===0?' on':'');
   const [dd,mm]=d.date.split('/');
   b.innerHTML=`<div class="pn">${dd}/${+mm}</div><div class="pd">${d.wd}</div>`;
-  b.addEventListener('click',()=>{
-    document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-    b.classList.add('on'); renderDay(i);
-    b.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-  });
+  b.addEventListener('click',()=>selectDay(i));
   pills.appendChild(b);
 });
+
+const costPill=document.createElement('div');
+costPill.className='pill info';
+costPill.innerHTML=`<div class="pn">💰 Chi phí</div>`;
+costPill.addEventListener('click',selectCost);
+pills.appendChild(costPill);
+
+function selectDay(i){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  pills.children[i].classList.add('on');
+  pills.children[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  renderDay(i);
+  window.scrollTo({top:document.querySelector('.pills-wrap').offsetTop,behavior:'smooth'});
+}
+function selectCost(){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  costPill.classList.add('on');
+  renderCost();
+  window.scrollTo({top:document.querySelector('.pills-wrap').offsetTop,behavior:'smooth'});
+}
+
 function renderDay(i){
-  const d=itinerary[i];
-  dhead.className='dhead'+(d.comp==='wico'?' wico':'');
-  dhead.innerHTML=`<div class="date">${d.wd} · ${d.date}</div>
-    <div class="title">${d.title}</div><div class="gist">${d.gist}</div>`;
-  drows.className=d.comp==='wico'?'wico':'';
-  drows.innerHTML=d.rows.map(r=>{
+  const d=days[i];
+  let html=`<div class="dhead">
+    <div class="date">${d.wd} · ${d.date}</div>
+    <div class="title">${d.title}</div>
+    <div class="gist">${d.gist}</div>
+  </div>`;
+
+  html+=`<div class="${d.comp==='wico'?'wico':''}">`;
+  d.schedule.forEach(r=>{
+    const hasExpand=!!r.expand;
     const tag=r.type==='comp'?`<span class="tag tag-comp">${d.comp==='wico'?'WICO':'AXGO'}</span>`:'';
-    return `<div class="row"><div class="t">${r.t}${r.sub?`<small>${r.sub}</small>`:''}</div>
+    html+=`<div class="row ${hasExpand?'has-expand':''}">
+      <div class="t">${r.t}${r.sub?`<small>${r.sub}</small>`:''}</div>
       <div class="bar bar-${r.type}"></div>
       <div><div class="act">${r.act}${tag}</div>
       ${r.note?`<div class="note">${r.note}</div>`:''}
-      ${r.where?`<span class="where">◦ ${r.where}</span>`:''}</div></div>`;
-  }).join('');
-}
-renderDay(0);
-
-// ---- places ----
-let mid=0;
-function renderPlaces(id){
-  const box=document.getElementById(id);
-  places[id].forEach(p=>{
-    const badges=p.badges.map(b=>`<span class="badge ${b[0]}">${b[1]}</span>`).join('');
-    const ll=coords[p.name]||[37.55,126.92]; const m='m'+(mid++);
-    const c=document.createElement('div'); c.className='place '+p.cls;
-    c.innerHTML=`<div class="pname">${p.name}</div><div class="badges">${badges}</div>
-      <div class="pdesc">${p.desc}</div><div class="hours">🕑 ${p.hours}</div>
-      <div class="pactions">
-        <button class="btn primary map-toggle" data-map="${m}" data-ll="${ll[0]},${ll[1]}">🗺️ Xem bản đồ</button>
-        <a class="btn" href="${p.map}" target="_blank" rel="noopener">↗ Mở Google Maps</a>
-      </div>
-      <div class="map-embed" id="${m}"></div>`;
-    box.appendChild(c);
-  });
-}
-['see1','see4','rain'].forEach(renderPlaces);
-document.querySelectorAll('.map-toggle').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const box=document.getElementById(btn.dataset.map);
-    if(!box.dataset.loaded){
-      box.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=${btn.dataset.ll}&z=15&hl=vi&output=embed"></iframe>`;
-      box.dataset.loaded='1';
+      ${r.where?`<span class="where">◦ ${r.where}</span>`:''}</div>
+    </div>`;
+    if(hasExpand){
+      html+=renderExpand(r.expand, d);
     }
-    box.classList.toggle('show');
-    btn.textContent=box.classList.contains('show')?'🗺️ Ẩn bản đồ':'🗺️ Xem bản đồ';
   });
-});
+  html+=`</div>`;
 
-// ---- tab nav ----
-document.querySelectorAll('nav.tabs button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    document.querySelectorAll('.tab').forEach(s=>s.classList.remove('active'));
-    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
+  content.innerHTML=html;
+  bindMapToggles();
+}
+
+function renderExpand(ex, d){
+  if(ex.kind==='route'){
+    const r=allRoutes[ex.id];
+    return `<div class="expand"><div class="sublabel">Chi tiết tuyến</div>
+      <div class="route ${r.cls}">
+        <div class="route-h">
+          <div><h4>${r.title}</h4><div class="stat">${r.total}</div></div>
+          <span class="recommend ${r.recCls}">${r.rec}</span>
+        </div>
+        <div class="steps">${r.steps.map(s=>`<div class="step ${s.cls}">
+          <div class="stepnum">${s.n}</div>
+          <div class="step-c"><div class="what">${s.what}</div><div class="det">${s.det}</div></div>
+        </div>`).join('')}</div>
+        ${r.tip?`<div class="tip">${r.tip}</div>`:''}
+      </div></div>`;
+  }
+  if(ex.kind==='meal'){
+    const items=d.meals?.[ex.slot];
+    if(!items) return '';
+    return `<div class="expand"><div class="sublabel">Quán đề xuất</div>
+      <div class="cards">${items.map(it=>renderDish(it,ex.slot)).join('')}</div></div>`;
+  }
+  if(ex.kind==='welcome'){
+    return `<div class="expand"><div class="sublabel">Lưu ý</div>
+      <div class="special-note">${d.welcomeNote}</div></div>`;
+  }
+  if(ex.kind==='sights'){
+    const p=allPlaces[ex.id];
+    let h=`<div class="expand"><div class="sublabel">Điểm đề xuất</div>`;
+    if(p.calloutBefore) h+=`<div class="callout">${p.calloutBefore}</div>`;
+    h+=`<div class="cards">${p.items.map(renderPlace).join('')}</div>`;
+    if(p.rain){
+      h+=`<div class="sublabel" style="margin-top:18px">☂ Phương án nếu mưa</div>`;
+      h+=`<div class="cards">${rainPlaces.map(renderPlace).join('')}</div>`;
+    }
+    h+=`</div>`;
+    return h;
+  }
+  return '';
+}
+
+function renderDish(it,kind){
+  const m='m'+(mapId++);
+  return `<div class="dish ${kind}">
+    <div class="dname">${it.n}<small>${it.sub}</small></div>
+    <div class="rating">⭐ ${it.r}</div>
+    <div class="badges"><span class="badge">${it.price}/người</span></div>
+    <div class="ddesc">${it.desc}</div>
+    <div class="dhours">🕑 ${it.hrs}</div>
+    <div class="pactions">
+      <button class="btn primary map-toggle" data-map="${m}" data-ll="${it.ll[0]},${it.ll[1]}">🗺️ Xem bản đồ</button>
+      ${it.cid?`<a class="btn" href="https://maps.google.com/?cid=${it.cid}" target="_blank" rel="noopener">↗ Google Maps</a>`:''}
+    </div>
+    <div class="map-embed" id="${m}"></div>
+  </div>`;
+}
+
+function renderPlace(it){
+  const m='m'+(mapId++);
+  const badges=it.badges.map(b=>`<span class="badge ${b[0]}">${b[1]}</span>`).join('');
+  const mapLink=it.cid?`https://maps.google.com/?cid=${it.cid}`:`https://maps.google.com/?q=${it.ll[0]},${it.ll[1]}`;
+  return `<div class="place ${it.cls}">
+    <div class="pname">${it.name}</div>
+    <div class="badges">${badges}</div>
+    <div class="pdesc">${it.desc}</div>
+    <div class="phours">🕑 ${it.hours}</div>
+    <div class="pactions">
+      <button class="btn primary map-toggle" data-map="${m}" data-ll="${it.ll[0]},${it.ll[1]}">🗺️ Xem bản đồ</button>
+      <a class="btn" href="${mapLink}" target="_blank" rel="noopener">↗ Google Maps</a>
+    </div>
+    <div class="map-embed" id="${m}"></div>
+  </div>`;
+}
+
+function bindMapToggles(){
+  document.querySelectorAll('.map-toggle').forEach(btn=>{
+    if(btn.dataset.bound)return;
+    btn.dataset.bound='1';
+    btn.addEventListener('click',()=>{
+      const box=document.getElementById(btn.dataset.map);
+      if(!box.dataset.loaded){
+        box.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=${btn.dataset.ll}&z=15&hl=vi&output=embed"></iframe>`;
+        box.dataset.loaded='1';
+      }
+      box.classList.toggle('show');
+      btn.textContent=box.classList.contains('show')?'🗺️ Ẩn bản đồ':'🗺️ Xem bản đồ';
+    });
   });
-});
+}
+
+function renderCost(){
+  // VND ≈ 18 per ₩
+  const v = (krw) => Math.round(krw*18/1000)*1000;
+  const fmt = (k) => k.toLocaleString('vi-VN')+'₩';
+  const fmtVnd = (n) => (n/1000000).toFixed(1)+'M ₫';
+
+  // Confirmed (in-trip)
+  const transport = [
+    {n:"Bus 6014 ICN → Cheolsan", amt:16000, note:"Vé Airport Limousine, ngày 13/07", c:"conf"},
+    {n:"Tàu KS ↔ Sogang · 3 ngày AXGO", amt:9000, note:"~1.500₩/lượt × 6 lượt", c:"conf"},
+    {n:"Tàu phụ Banpo + Insadong", amt:3000, note:"Ngày 15/07 + 16/07, mỗi ngày ~1.500₩", c:"conf"},
+    {n:"Tàu KS ↔ SNUE · 2 ngày WICO", amt:4500, note:"~1.500₩ × 3 lượt (17/07 RT + 18/07 1 chiều)", c:"conf"},
+    {n:"Bus 6016 SNUE → ICN", amt:16000, note:"Vé Airport Limousine, ngày 18/07", c:"conf"},
+    {n:"Thẻ T-money + nạp dự phòng", amt:10000, note:"Mua thẻ 4.000₩ + nạp dư", c:"conf"},
+  ];
+  const tpTotal = transport.reduce((s,x)=>s+x.amt,0);
+
+  const meals = [
+    {n:"Trưa + Tối · 6 ngày", amt:330000, range:[270000,390000], note:"Trung bình ~45–65k/người/ngày theo quán đề xuất", c:"est"},
+    {n:"Sáng tại KS · 5 ngày", amt:0, note:"Mặc định bao gồm trong phòng KS (cần xác nhận)", c:"conf"},
+  ];
+  const mealsLow = 270000, mealsHigh = 390000;
+
+  const sights = [
+    {n:"Yeonnam Park / Ewha / Bukchon / Insadong / Myeongdong / Outlet", amt:0, note:"Tất cả miễn phí", c:"conf"},
+    {n:"Gyeongbokgung Palace", amt:3000, note:"Mặc hanbok thuê → miễn phí vé", c:"conf"},
+    {n:"N Seoul Tower (cáp treo · tùy chọn)", amt:14000, note:"Khứ hồi ~17k. Nếu không lên thì 0₩", c:"est"},
+    {n:"Hanbok rental Bukchon · 2h (tùy chọn)", amt:15000, note:"Đẹp ảnh + được miễn phí vào Gyeongbokgung", c:"est"},
+  ];
+  const sightsLow = 0, sightsHigh = 32000;
+
+  // Totals (in-Korea only)
+  const inLow = tpTotal + mealsLow + sightsLow;
+  const inHigh = tpTotal + mealsHigh + sightsHigh;
+
+  const renderRow = (r) => {
+    const amt = r.range ? `${fmt(r.range[0])} – ${fmt(r.range[1])}` :
+                 r.amt===0 ? '0₩' : fmt(r.amt);
+    return `<div class="cost-row ${r.c}">
+      <div class="cn">${r.n}${r.note?`<span class="cnote">${r.note}</span>`:''}</div>
+      <div class="ca">${amt}</div>
+    </div>`;
+  };
+
+  content.innerHTML=`<div class="dhead">
+    <div class="date">Tham khảo</div>
+    <div class="title">Chi phí ước tính tại Hàn</div>
+    <div class="gist">Cho 1 người · 6 ngày (13–18/07/2026) · không bao gồm vé bay, KS, visa, phí dự thi</div>
+  </div>
+
+  <div class="cost-legend">
+    <span><i class="lg-conf"></i>Đã tính được</span>
+    <span><i class="lg-est"></i>Ước tính theo lịch trình</span>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <div class="cost-section">
+      <h4><span class="ic move">🚇</span>Di chuyển tại Hàn</h4>
+      <p>Bus sân bay + tàu điện ngầm theo tuyến đã lên.</p>
+      ${transport.map(renderRow).join('')}
+      <div class="cost-sub"><span>Tạm tính</span><span>${fmt(tpTotal)}</span></div>
+    </div>
+
+    <div class="cost-section">
+      <h4><span class="ic food">🍽</span>Ăn uống</h4>
+      <p>Trưa + Tối tại quán đề xuất; sáng tại KS.</p>
+      ${meals.map(renderRow).join('')}
+      <div class="cost-sub"><span>Tạm tính</span><span>${fmt(mealsLow)} – ${fmt(mealsHigh)}</span></div>
+    </div>
+
+    <div class="cost-section">
+      <h4><span class="ic see">🗺</span>Tham quan</h4>
+      <p>Hầu hết các điểm miễn phí; một số mục tùy chọn.</p>
+      ${sights.map(renderRow).join('')}
+      <div class="cost-sub"><span>Tạm tính</span><span>${fmt(sightsLow)} – ${fmt(sightsHigh)}</span></div>
+    </div>
+  </div>
+
+  <div class="cost-total">
+    <div class="tlabel">Tổng chi phí tại Hàn / 1 người</div>
+    <div class="tnum">${fmt(inLow)} – ${fmt(inHigh)}</div>
+    <div class="tvnd">≈ ${fmtVnd(v(inLow))} – ${fmtVnd(v(inHigh))} VND <span style="opacity:.7">(tỷ giá tham khảo 1₩ ≈ 18₫)</span></div>
+    <div class="tnote"><b style="color:var(--paper)">Chưa bao gồm:</b> vé máy bay, khách sạn, visa, bảo hiểm, phí dự thi AXGO + WICO, tiền tiêu vặt cá nhân, quà cáp/lưu niệm, taxi phát sinh.<br>
+    <b style="color:var(--paper)">Tổng đoàn 25 (riêng chi tiêu tại Hàn):</b> ${fmtVnd(v(inLow)*25)} – ${fmtVnd(v(inHigh)*25)} VND</div>
+  </div>`;
+}
+
+renderDay(0);
 </script>
 </body>
 </html>
