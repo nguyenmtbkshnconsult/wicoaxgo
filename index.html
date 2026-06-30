@@ -9,42 +9,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f4eee1; --paper-2:#efe7d6; --ink:#20283c; --ink-soft:#4a5468;
-    --line:#d8cdb6; --persimmon:#d4552c; --persimmon-d:#b8421e; --indigo:#2c4a7c;
-    --jade:#2f6b5a; --ochre:#c08a2d; --slate:#6b7689; --rest:#8a8170; --card:#fbf7ec;
+    --paper:#ffffff; --paper-2:#f3f6fa; --ink:#0d2f4b; --ink-soft:#345373;
+    --line:#dce3eb; --persimmon:#fe8f01; --persimmon-d:#d97300; --indigo:#0d2f4b;
+    --jade:#2e6090; --ochre:#fe8f01; --slate:#6b7689; --rest:#94a0b3; --card:#ffffff;
     --line7:#747f00; --line2:#00a84d; --line1:#0052a4; --line3:#ef7c1c;
-    --shadow:0 1px 0 rgba(32,40,60,.04), 0 16px 34px -22px rgba(32,40,60,.5);
+    --shadow:0 1px 0 rgba(13,47,75,.05), 0 18px 38px -22px rgba(13,47,75,.32);
+    --grad-hero:linear-gradient(135deg, #0d2f4b 0%, #1a4a73 55%, #fe8f01 135%);
+    --grad-pill:linear-gradient(135deg, #0d2f4b 0%, #1a4a73 100%);
+    --grad-btn:linear-gradient(135deg, #fe8f01 0%, #d97300 100%);
+    --grad-accent:linear-gradient(90deg, #fe8f01, #0d2f4b);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
   body{font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);line-height:1.6;
     background:var(--paper);-webkit-font-smoothing:antialiased;
-    background-image:radial-gradient(circle at 12% -3%,rgba(212,85,44,.07),transparent 40%),
-      radial-gradient(circle at 92% 5%,rgba(44,74,124,.07),transparent 38%);}
+    background-image:radial-gradient(circle at 6% -2%,rgba(254,143,1,.07),transparent 38%),
+      radial-gradient(circle at 94% 10%,rgba(13,47,75,.06),transparent 42%);}
   .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
 
   /* HERO */
-  header.hero{padding:clamp(34px,6vw,56px) 0 clamp(20px,3vw,30px);border-bottom:2px solid var(--ink)}
-  .hero .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--persimmon-d)}
-  .hero h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,6vw,3.8rem);line-height:1;letter-spacing:-.015em;margin-top:12px}
-  .hero h1 em{font-style:italic;font-weight:500;color:var(--persimmon)}
+  header.hero{padding:clamp(34px,6vw,56px) 0 clamp(20px,3vw,30px);background:var(--grad-hero);color:#fff;
+    position:relative;overflow:hidden;border-bottom:none}
+  header.hero::after{content:"";position:absolute;top:-30%;right:-15%;width:70%;height:200%;
+    background:radial-gradient(ellipse 55% 50% at center,rgba(254,143,1,.55) 0%,transparent 70%);
+    pointer-events:none;z-index:0}
+  header.hero .wrap{position:relative;z-index:1}
+  .hero .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.78)}
+  .hero h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2rem,6vw,3.8rem);line-height:1;letter-spacing:-.015em;margin-top:12px;color:#fff}
+  .hero h1 em{font-style:italic;font-weight:500;color:#fe8f01}
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(16px,3vw,24px)}
-  .chip{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);
-    padding:8px 14px;border-radius:999px;font-size:.82rem;font-weight:500;box-shadow:var(--shadow)}
-  .chip b{font-weight:700} .chip .dot{width:10px;height:10px;border-radius:50%;flex:none}
-  .d-axgo{background:var(--persimmon)} .d-wico{background:var(--indigo)} .d-stay{background:var(--jade)} .d-fly{background:var(--slate)}
+  .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    padding:8px 14px;border-radius:999px;font-size:.82rem;font-weight:500;color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .chip b{font-weight:700;color:#fff} .chip .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .d-axgo{background:#fe8f01} .d-wico{background:#cdd6e0} .d-stay{background:#ffc88a} .d-fly{background:#fff}
 
   /* DAY PILLS - sticky top */
-  .pills-wrap{position:sticky;top:0;z-index:60;background:rgba(244,238,225,.94);backdrop-filter:blur(8px);
+  .pills-wrap{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);padding:11px 0}
   .pills{display:flex;gap:8px;overflow-x:auto;padding:2px clamp(16px,4vw,32px);max-width:1080px;margin:0 auto;flex-wrap:nowrap}
   .pills::-webkit-scrollbar{height:0}
-  .pill{flex:none;border:1px solid var(--line);background:var(--card);border-radius:14px;
+  .pill{flex:none;border:1px solid var(--line);background:#fff;border-radius:14px;
     padding:8px 12px;text-align:center;cursor:pointer;transition:.25s;min-width:56px}
   .pill .pn{font-family:"Fraunces",serif;font-weight:900;font-size:1rem;line-height:1;white-space:nowrap}
   .pill .pd{font-size:.58rem;font-weight:600;color:var(--slate);margin-top:3px;letter-spacing:.04em}
-  .pill.on{background:var(--ink);border-color:var(--ink)}
-  .pill.on .pn{color:var(--paper)} .pill.on .pd{color:rgba(244,238,225,.7)}
+  .pill.on{background:var(--grad-pill);border-color:#0d2f4b;box-shadow:0 6px 18px -8px rgba(13,47,75,.5)}
+  .pill.on .pn{color:#fff} .pill.on .pd{color:rgba(255,255,255,.72)}
   .pill.info{min-width:auto;padding:8px 14px}
   .pill.info .pn{font-family:"Be Vietnam Pro";font-weight:600;font-size:.85rem}
 
@@ -54,9 +63,10 @@
   @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   /* DAY HEADER */
-  .dhead{padding:6px 2px 26px;border-bottom:2px solid var(--ink);margin-bottom:8px}
-  .dhead .date{font-size:.78rem;color:var(--persimmon-d);font-weight:600;letter-spacing:.04em}
-  .dhead .title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3vw,2rem);line-height:1.1;margin-top:4px;letter-spacing:-.01em}
+  .dhead{padding:6px 2px 26px;border-bottom:none;margin-bottom:8px;position:relative}
+  .dhead::after{content:"";position:absolute;left:2px;bottom:0;width:80px;height:3px;background:var(--grad-accent);border-radius:3px}
+  .dhead .date{font-size:.78rem;color:var(--persimmon);font-weight:600;letter-spacing:.04em}
+  .dhead .title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,3vw,2rem);line-height:1.1;margin-top:4px;letter-spacing:-.01em;color:var(--ink)}
   .dhead .gist{font-size:.92rem;color:var(--ink-soft);margin-top:6px}
 
   /* SCHEDULE ROWS */
@@ -109,7 +119,7 @@
   .step-c .det{font-size:.76rem;color:var(--ink-soft);margin-top:3px;line-height:1.45}
   .badge-line{display:inline-block;padding:2px 7px;border-radius:5px;font-size:.6rem;font-weight:700;color:#fff;margin-right:4px;vertical-align:middle}
   .b-l7{background:var(--line7)} .b-l2{background:var(--line2)} .b-l1{background:var(--line1)} .b-l3{background:var(--line3)}
-  .route .tip{background:#f6f1e3;border-radius:9px;padding:10px 13px;font-size:.76rem;color:var(--ink-soft);margin-top:10px;line-height:1.5}
+  .route .tip{background:var(--paper-2);border-radius:9px;padding:10px 13px;font-size:.76rem;color:var(--ink-soft);margin-top:10px;line-height:1.5}
   .route .tip b{color:var(--ink)}
 
   /* DISH / PLACE CARDS */
@@ -124,22 +134,24 @@
   .dish .rating{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;color:var(--ochre);margin-top:6px}
   .badges{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}
   .badge{font-size:.62rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft)}
-  .badge.free{color:var(--jade);border-color:#bcd6c9;background:#eaf3ee}
-  .badge.indoor{color:var(--indigo);border-color:#c2cee0;background:#e9eef6}
+  .badge.free{color:var(--persimmon-d);border-color:#ffd699;background:#fff5e8}
+  .badge.indoor{color:var(--jade);border-color:#c2d4e8;background:#e8f0f8}
   .ddesc,.pdesc{font-size:.81rem;color:var(--ink-soft);line-height:1.5}
   .dhours,.phours{font-size:.7rem;color:var(--slate);margin-top:9px;font-variant-numeric:tabular-nums}
   .pactions{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
   .btn{font-size:.72rem;font-weight:600;padding:7px 12px;border-radius:11px;cursor:pointer;border:1px solid var(--line);
-    background:var(--paper-2);color:var(--ink);display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-family:inherit}
-  .btn.primary{background:var(--indigo);border-color:var(--indigo);color:#fff}
+    background:#fff;color:var(--ink);display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-family:inherit;transition:.2s}
+  .btn:hover{border-color:var(--ink-soft)}
+  .btn.primary{background:var(--grad-btn);border-color:transparent;color:#fff;box-shadow:0 4px 12px -4px rgba(254,143,1,.5)}
+  .btn.primary:hover{box-shadow:0 6px 16px -4px rgba(254,143,1,.6)}
   .map-embed{max-height:0;overflow:hidden;transition:max-height .45s ease;grid-column:1/-1}
   .map-embed.show{max-height:240px}
   .map-embed iframe{width:100%;height:220px;border:0;border-radius:11px;display:block;margin-top:12px}
 
-  .special-note{background:#e9eef6;border:1px solid #c2cee0;border-left:4px solid var(--indigo);
+  .special-note{background:#e8f0f8;border:1px solid #c2d4e8;border-left:4px solid var(--ink);
     border-radius:12px;padding:13px 16px;font-size:.85rem;color:var(--ink-soft);line-height:1.5}
-  .special-note b{color:var(--indigo)}
-  .callout{background:#fdf3e9;border:1px solid #e7c79f;border-left:4px solid var(--persimmon);
+  .special-note b{color:var(--ink)}
+  .callout{background:#fff5e8;border:1px solid #ffd699;border-left:4px solid var(--persimmon);
     border-radius:12px;padding:13px 16px;font-size:.83rem;line-height:1.5;color:#7a4a26;margin-bottom:12px}
   .callout b{color:var(--persimmon-d)}
 
@@ -159,34 +171,8 @@
   .hotel-card .haddr b{color:var(--ink)}
   .hotel-card .hactions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 
-  /* COST */
-  .cost-section{margin-bottom:18px}
-  .cost-section h4{font-family:"Fraunces",serif;font-weight:600;font-size:.95rem;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .cost-section h4 .ic{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;color:#fff;font-size:.82rem}
-  .ic.pre{background:var(--indigo)} .ic.move{background:var(--slate)}
-  .ic.food{background:var(--ochre)} .ic.see{background:var(--jade)}
-  .cost-section p{font-size:.74rem;color:var(--ink-soft);margin:0 0 6px 32px}
-  .cost-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
-  .cost-row:last-of-type{border-bottom:none}
-  .cost-row .cn{flex:1;font-size:.85rem;font-weight:500;line-height:1.4}
-  .cost-row .cn .cnote{display:block;font-size:.7rem;color:var(--slate);font-weight:400;margin-top:3px;line-height:1.4}
-  .cost-row .ca{font-variant-numeric:tabular-nums;font-weight:700;font-size:.86rem;text-align:right;white-space:nowrap}
-  .cost-row .ca small{display:block;font-size:.62rem;font-weight:500;color:var(--slate);margin-top:2px;letter-spacing:.04em;text-transform:uppercase}
-  .cost-row.est .ca{color:var(--persimmon-d)}
-  .cost-row.conf .ca{color:var(--jade)}
-  .cost-row.unk .ca{color:var(--slate);font-style:italic}
-  .cost-sub{display:flex;justify-content:space-between;padding-top:11px;margin-top:4px;border-top:2px solid var(--ink);font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
-  .cost-total{background:var(--ink);color:var(--paper);border-radius:18px;padding:22px 24px;margin-top:18px;box-shadow:var(--shadow)}
-  .cost-total .tlabel{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,225,.7);font-weight:600}
-  .cost-total .tnum{font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;line-height:1.1;margin-top:6px;color:var(--paper)}
-  .cost-total .tvnd{color:rgba(244,238,225,.85);font-size:.96rem;margin-top:6px;font-weight:500}
-  .cost-total .tnote{font-size:.74rem;color:rgba(244,238,225,.65);margin-top:14px;line-height:1.5;padding-top:14px;border-top:1px solid rgba(244,238,225,.18)}
-  .cost-legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:.74rem;color:var(--ink-soft);margin-top:12px;padding:11px 13px;background:var(--paper-2);border-radius:10px}
-  .cost-legend span{display:inline-flex;align-items:center;gap:6px}
-  .cost-legend i{width:10px;height:10px;border-radius:50%}
-  .lg-conf{background:var(--jade)} .lg-est{background:var(--persimmon-d)} .lg-unk{background:var(--slate)}
-
-  footer{margin-top:50px;border-top:2px solid var(--ink);padding:24px 0 40px;font-size:.78rem;color:var(--slate)}
+  footer{margin-top:50px;border-top:none;padding:30px 0 40px;font-size:.78rem;color:var(--slate);position:relative}
+  footer::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--grad-accent)}
   footer p{max-width:70ch;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
 
   @media(max-width:720px){
@@ -235,7 +221,7 @@ const days = [
   {date:"13/07/2026", wd:"T2", title:"Đến Seoul · về khách sạn", gist:"Hạ cánh sáng, di chuyển về Gwangmyeong",
     schedule:[
       {t:"07:35", type:"doc", act:"Hạ cánh Incheon, nhập cảnh, lấy hành lý ký gửi", note:"Khai e-Arrival Card (QR) trước khi bay; gom đoàn sau cửa ra", where:"Sân bay Incheon"},
-      {t:"09:00", type:"travel", act:"Bắt Airport Limousine Bus 6014 → Cheolsan Station", note:"Bus dừng ngay Cheolsan, đi bộ 3–5p về KS. Vé 16.000₩/người", expand:{kind:"route", id:"icn2hotel"}},
+      {t:"09:00", type:"travel", act:"Bắt Airport Limousine Bus 6014 → Cheolsan Station", note:"Bus dừng ngay Cheolsan, đi bộ 3–5p về KS", expand:{kind:"route", id:"icn2hotel"}},
       {t:"10:30", type:"rest", act:"Đến khách sạn, gửi hành lý, nghỉ ngơi nhẹ", note:"Phòng có thể chưa sẵn — gửi hành lý ở lễ tân. Đoàn vừa bay đêm, không nên ép lịch nặng", where:"JS Hotel"},
       {t:"12:30", type:"meal", act:"Ăn trưa quanh khách sạn", where:"Cheolsan", expand:{kind:"meal", slot:"lunch"}},
       {t:"14:30", type:"see", act:"Tham quan khám phá", note:"Vừa bay đêm → chọn một điểm, không đi xa", expand:{kind:"sights", id:"see1"}},
@@ -244,12 +230,12 @@ const days = [
     ],
     meals:{
       lunch:[
-        {n:"백세밥상 (Baekse Bapsang)", sub:"Set cơm Hàn truyền thống", r:"4.0", price:"~18k", desc:"15+ banchan refill miễn phí, không gian rộng dễ phục vụ đoàn lớn. Lý tưởng sau bay đêm.", hrs:"11:00–21:00 mỗi ngày", ll:[37.4524556,126.8647922], cid:"15000040716180553367"},
-        {n:"Cheolsan Myeongga Cauldron Table", sub:"Cơm gốm nấu tại bàn", r:"4.0", price:"~22k", desc:"Cơm nấu trong nồi gang tại bàn + banchan truyền thống. Specialty cá đặt tại Cheolsan.", hrs:"11:30–22:00 mỗi ngày", ll:[37.4882924,126.8695379], cid:"8146957260470125039"},
+        {n:"백세밥상 (Baekse Bapsang)", sub:"Set cơm Hàn truyền thống", r:"4.0", desc:"15+ banchan refill miễn phí, không gian rộng dễ phục vụ đoàn lớn. Lý tưởng sau bay đêm.", hrs:"11:00–21:00 mỗi ngày", ll:[37.4524556,126.8647922], cid:"15000040716180553367"},
+        {n:"Cheolsan Myeongga Cauldron Table", sub:"Cơm gốm nấu tại bàn", r:"4.0", desc:"Cơm nấu trong nồi gang tại bàn + banchan truyền thống. Specialty cá đặt tại Cheolsan.", hrs:"11:30–22:00 mỗi ngày", ll:[37.4882924,126.8695379], cid:"8146957260470125039"},
       ],
       dinner:[
-        {n:"양꼬치대장 (Yangkkochi Daejang)", sub:"Lamb skewers + món Trung", r:"4.9", price:"~30k", desc:"Lamb skewers tươi không hôi, mapo tofu cay đậm đà. Ngay Cheolsan Exit 1, sau Hi-Mart.", hrs:"13:00–24:00 mỗi ngày", ll:[37.4756085,126.8690288], cid:"15375068814091525846"},
-        {n:"코리안숯불등갈비 (Korean Charcoal Back Ribs)", sub:"Sườn nướng than đặc sản", r:"4.7", price:"~35k", desc:"Sườn heo nướng than hoa, top 3 quán đặc sản Cheolsan-dong. Không gian mộc mạc.", hrs:"Kiểm tra trước khi đến", ll:[37.4744212,126.8696163], cid:"14572197497470156100"},
+        {n:"양꼬치대장 (Yangkkochi Daejang)", sub:"Lamb skewers + món Trung", r:"4.9", desc:"Lamb skewers tươi không hôi, mapo tofu cay đậm đà. Ngay Cheolsan Exit 1, sau Hi-Mart.", hrs:"13:00–24:00 mỗi ngày", ll:[37.4756085,126.8690288], cid:"15375068814091525846"},
+        {n:"코리안숯불등갈비 (Korean Charcoal Back Ribs)", sub:"Sườn nướng than đặc sản", r:"4.7", desc:"Sườn heo nướng than hoa, top 3 quán đặc sản Cheolsan-dong. Không gian mộc mạc.", hrs:"Kiểm tra trước khi đến", ll:[37.4744212,126.8696163], cid:"14572197497470156100"},
       ],
     }},
 
@@ -266,8 +252,8 @@ const days = [
     ],
     meals:{
       lunch:[
-        {n:"Gonaengji (고냉지)", sub:"Kimchi jjigae + bibimbap", r:"4.3", price:"~14k", desc:"Kimchi jjigae kèm cơm gốm trộn thành bibimbap, có bossam. Quán nhỏ, khách địa phương đông.", hrs:"9:30–21:30 · đóng T2", ll:[37.5584729,126.9421968], cid:"12099527625014902002"},
-        {n:"Gosame (고사메)", sub:"Cá thu nướng + canh đậu hũ · Halal", r:"4.5", price:"~15k", desc:"Set cơm cá thu nướng, mực xào cay, soft tofu stew. Halal certified — phù hợp HS không ăn thịt heo.", hrs:"11:00–14:30, 16:30–20:40", ll:[37.5583636,126.9347281], cid:"17085989080611115620"},
+        {n:"Gonaengji (고냉지)", sub:"Kimchi jjigae + bibimbap", r:"4.3", desc:"Kimchi jjigae kèm cơm gốm trộn thành bibimbap, có bossam. Quán nhỏ, khách địa phương đông.", hrs:"9:30–21:30 · đóng T2", ll:[37.5584729,126.9421968], cid:"12099527625014902002"},
+        {n:"Gosame (고사메)", sub:"Cá thu nướng + canh đậu hũ · Halal", r:"4.5", desc:"Set cơm cá thu nướng, mực xào cay, soft tofu stew. Halal certified — phù hợp HS không ăn thịt heo.", hrs:"11:00–14:30, 16:30–20:40", ll:[37.5583636,126.9347281], cid:"17085989080611115620"},
       ],
     },
     welcomeNote:"<b>Welcome Night của BTC AXGO</b> tại Hongdae — BTC chi (xác nhận trước với BTC có bao gồm suất ăn cho cả đoàn không). Kết thúc trước 22:30 để bắt tàu Line 7 cuối về Cheolsan (~23:30)."},
@@ -287,10 +273,10 @@ const days = [
     ],
     meals:{
       lunch:[
-        {n:"bb.q Chicken Hongdae", sub:"Gà rán Hàn (Golden Olive, Yangnyeom...)", r:"4.9", price:"~25k", desc:"Order qua tablet tiếng Anh, 1 con chia 2–3 người → đoàn ~10 con + sides. Đi bộ ~20p từ Sogang qua phố Hongdae.", hrs:"10:00–6:00 hôm sau", ll:[37.5550375,126.9230599], cid:"7321472049557747538"},
+        {n:"bb.q Chicken Hongdae", sub:"Gà rán Hàn (Golden Olive, Yangnyeom...)", r:"4.9", desc:"Order qua tablet tiếng Anh, 1 con chia 2–3 người → đoàn ~10 con + sides. Đi bộ ~20p từ Sogang qua phố Hongdae.", hrs:"10:00–6:00 hôm sau", ll:[37.5550375,126.9230599], cid:"7321472049557747538"},
       ],
       dinner:[
-        {n:"산들해 반포점 (Sandeulhae Banpo)", sub:"Set cơm Hàn AYCE", r:"3.9", price:"16k", desc:"Set cơm Hàn truyền thống — refill tất cả banchan + món chính (bossam, soy crab...). Hầm rộng, nhận đoàn lớn. Đi bộ ~10p tới Banpo Bridge ngắm cầu vồng sau ăn.", hrs:"11:10–15:00, 17:00–20:50", ll:[37.5042371,127.0010801], cid:"15445443728957389398"},
+        {n:"산들해 반포점 (Sandeulhae Banpo)", sub:"Set cơm Hàn AYCE", r:"3.9", desc:"Set cơm Hàn truyền thống — refill tất cả banchan + món chính (bossam, soy crab...). Hầm rộng, nhận đoàn lớn. Đi bộ ~10p tới Banpo Bridge ngắm cầu vồng sau ăn.", hrs:"11:10–15:00, 17:00–20:50", ll:[37.5042371,127.0010801], cid:"15445443728957389398"},
       ],
     }},
 
@@ -307,12 +293,12 @@ const days = [
     ],
     meals:{
       lunch:[
-        {n:"Bebab Bibimbap Hongdae", sub:"Bibimbap + canh đậu hũ", r:"4.9", price:"~15k", desc:"Tablet tiếng Anh order siêu nhanh, vegan options rõ ràng. Phục vụ nhanh — kịp giờ đi Insadong chiều.", hrs:"11:00–15:30, 16:30–19:45", ll:[37.5528880,126.9237350], cid:"2992842495773998696"},
-        {n:"Kim Gwangseok Sinchon Kalguksu", sub:"Kalguksu nấm cay 1 menu duy nhất", r:"4.3", price:"~13k", desc:"Hot pot kalguksu nấm + cơm chiên vòng 2 cuối bữa. No bụng, không cần chọn món, phục vụ siêu nhanh.", hrs:"9:00–23:00 (T7-CN 10:00–22:00)", ll:[37.5556595,126.9394368], cid:"17725983252569904108"},
+        {n:"Bebab Bibimbap Hongdae", sub:"Bibimbap + canh đậu hũ", r:"4.9", desc:"Tablet tiếng Anh order siêu nhanh, vegan options rõ ràng. Phục vụ nhanh — kịp giờ đi Insadong chiều.", hrs:"11:00–15:30, 16:30–19:45", ll:[37.5528880,126.9237350], cid:"2992842495773998696"},
+        {n:"Kim Gwangseok Sinchon Kalguksu", sub:"Kalguksu nấm cay 1 menu duy nhất", r:"4.3", desc:"Hot pot kalguksu nấm + cơm chiên vòng 2 cuối bữa. No bụng, không cần chọn món, phục vụ siêu nhanh.", hrs:"9:00–23:00 (T7-CN 10:00–22:00)", ll:[37.5556595,126.9394368], cid:"17725983252569904108"},
       ],
       dinner:[
-        {n:"인사동 안집 (Insadong Anjib)", sub:"Bibimbap truyền thống + thịt nướng", r:"5.0", price:"~25k", desc:"Bibimbap lúa mạch với 나물 đa dạng, không gian hanok ấm cúng. Đánh giá hoàn hảo nhiều review.", hrs:"11:00–23:00 mỗi ngày", ll:[37.5749283,126.9855551], cid:"3932527841999241648"},
-        {n:"불탄왕뽐구이&감자탕 명동점", sub:"Sườn nướng + canh xương khoai · Myeongdong", r:"4.9", price:"~35k", desc:"Phương án thay thế tại Myeongdong (cách Insadong ~10p tàu). English menu, phục vụ nhanh, bibimbap kèm theo set.", hrs:"11:00–23:00 mỗi ngày", ll:[37.5611959,126.9834094], cid:"8541612893568770485"},
+        {n:"인사동 안집 (Insadong Anjib)", sub:"Bibimbap truyền thống + thịt nướng", r:"5.0", desc:"Bibimbap lúa mạch với 나물 đa dạng, không gian hanok ấm cúng. Đánh giá hoàn hảo nhiều review.", hrs:"11:00–23:00 mỗi ngày", ll:[37.5749283,126.9855551], cid:"3932527841999241648"},
+        {n:"불탄왕뽐구이&감자탕 명동점", sub:"Sườn nướng + canh xương khoai · Myeongdong", r:"4.9", desc:"Phương án thay thế tại Myeongdong (cách Insadong ~10p tàu). English menu, phục vụ nhanh, bibimbap kèm theo set.", hrs:"11:00–23:00 mỗi ngày", ll:[37.5611959,126.9834094], cid:"8541612893568770485"},
       ],
     }},
 
@@ -330,11 +316,11 @@ const days = [
     ],
     meals:{
       lunch:[
-        {n:"1992덮밥&짜글이 강남점", sub:"Bibimbap + canh, không gian hanok", r:"4.8", price:"~15k", desc:"Kiosk tiếng Anh, kimchi stew + bibimbap. Sạch, gọn, phục vụ rất nhanh — phù hợp giờ nghỉ trưa giữa 2 phiên thi.", hrs:"10:30–22:30 (T7-CN 10:00–22:00)", ll:[37.4964527,127.0291287], cid:"16881502039872453934"},
+        {n:"1992덮밥&짜글이 강남점", sub:"Bibimbap + canh, không gian hanok", r:"4.8", desc:"Kiosk tiếng Anh, kimchi stew + bibimbap. Sạch, gọn, phục vụ rất nhanh — phù hợp giờ nghỉ trưa giữa 2 phiên thi.", hrs:"10:30–22:30 (T7-CN 10:00–22:00)", ll:[37.4964527,127.0291287], cid:"16881502039872453934"},
       ],
       dinner:[
-        {n:"양꼬치대장 (Yangkkochi Daejang)", sub:"Lamb skewers · Cheolsan", r:"4.9", price:"~30k", desc:"Quay lại quán quen Cheolsan sau ngày dài thi. Gần KS đi bộ ~5p.", hrs:"13:00–24:00 mỗi ngày", ll:[37.4756085,126.8690288], cid:"15375068814091525846"},
-        {n:"코리안숯불등갈비 (Korean Charcoal Back Ribs)", sub:"Sườn nướng than · Cheolsan", r:"4.7", price:"~35k", desc:"Phương án thay thế nếu đã ăn lamb hôm 13/7.", hrs:"Kiểm tra trước", ll:[37.4744212,126.8696163], cid:"14572197497470156100"},
+        {n:"양꼬치대장 (Yangkkochi Daejang)", sub:"Lamb skewers · Cheolsan", r:"4.9", desc:"Quay lại quán quen Cheolsan sau ngày dài thi. Gần KS đi bộ ~5p.", hrs:"13:00–24:00 mỗi ngày", ll:[37.4756085,126.8690288], cid:"15375068814091525846"},
+        {n:"코리안숯불등갈비 (Korean Charcoal Back Ribs)", sub:"Sườn nướng than · Cheolsan", r:"4.7", desc:"Phương án thay thế nếu đã ăn lamb hôm 13/7.", hrs:"Kiểm tra trước", ll:[37.4744212,126.8696163], cid:"14572197497470156100"},
       ],
     }},
 
@@ -345,7 +331,7 @@ const days = [
       {t:"09:30", type:"travel", act:"Tàu Cheolsan → Gyodae (mang hành lý)", note:"Line 7 → Line 2 · ~55 phút · chia nhóm + buddy giữ vali", where:"Tàu điện", expand:{kind:"route", id:"hotel2snue"}},
       {t:"10:30", type:"comp", act:"Đến SNUE; gửi hành lý tại sảnh; dự lễ trao giải + bế mạc WICO", where:"SNUE"},
       {t:"13:00", type:"meal", act:"Ăn trưa quanh SNUE; lấy hành lý ra điểm đón bus", where:"Seocho", expand:{kind:"meal", slot:"lunch"}},
-      {t:"14:30", type:"travel", act:"Bắt Airport Limousine Bus 6016 tại SNUE → ICN", note:"Vé 16.000₩/người. ~70–90 phút. SNUE là đầu tuyến", where:"SNUE → ICN", expand:{kind:"route", id:"snue2icn"}},
+      {t:"14:30", type:"travel", act:"Bắt Airport Limousine Bus 6016 tại SNUE → ICN", note:"~70–90 phút. SNUE là đầu tuyến", where:"SNUE → ICN", expand:{kind:"route", id:"snue2icn"}},
       {t:"16:00", type:"doc", act:"Đến sân bay Incheon, làm thủ tục, ký gửi hành lý", note:"Có mặt sân bay tối thiểu 3h trước cho đoàn đông", where:"Sân bay Incheon"},
       {t:"19:30", type:"fly", act:"Lên máy bay (boarding)"},
       {t:"20:40", type:"fly", act:"Jeju Air 7C2201 cất cánh về Hà Nội", note:"Bay 5g 05", where:"Incheon → Nội Bài"},
@@ -353,23 +339,23 @@ const days = [
     ],
     meals:{
       lunch:[
-        {n:"1992덮밥&짜글이 강남점", sub:"Bibimbap + canh", r:"4.8", price:"~18k", desc:"Sau bế mạc WICO, ăn nhanh-gọn rồi kịp bắt Bus 6016 14:30 ra sân bay. Quán mở cuối tuần.", hrs:"10:00–22:00 cuối tuần", ll:[37.4964527,127.0291287], cid:"16881502039872453934"},
+        {n:"1992덮밥&짜글이 강남점", sub:"Bibimbap + canh", r:"4.8", desc:"Sau bế mạc WICO, ăn nhanh-gọn rồi kịp bắt Bus 6016 14:30 ra sân bay. Quán mở cuối tuần.", hrs:"10:00–22:00 cuối tuần", ll:[37.4964527,127.0291287], cid:"16881502039872453934"},
       ],
     }},
 ];
 
 const allRoutes = {
   icn2hotel:{cls:"r-arr", title:"Sân bay Incheon → Khách sạn",
-    total:"~70–90 phút · 16.000₩/người", rec:"BUS 6014", recCls:"rec-bus",
+    total:"~70–90 phút", rec:"BUS 6014", recCls:"rec-bus",
     steps:[
       {cls:"bus", n:"🚌", what:"Bắt Airport Limousine Bus 6014 tại sân bay Incheon", det:"Tuyến: Incheon Airport T1/T2 → Gimpo Airport → Gaebong → <b>Cheolsan</b> → Gwangmyeong KTX. Bến đỗ ngoài sảnh đến."},
-      {cls:"line7", n:"📍", what:"Xuống tại Cheolsan Station (Bus Stop No. 1402)", det:"~70 phút từ ICN T1. Vé 16.000₩/người."},
+      {cls:"line7", n:"📍", what:"Xuống tại Cheolsan Station (Bus Stop No. 1402)", det:"~70 phút từ ICN T1."},
       {cls:"walk", n:"🚶", what:"Đi bộ → JS Boutique Hotel", det:"~3–5 phút"},
       {cls:"arrive", n:"🏨", what:"Đến khách sạn", det:"Gửi hành lý lễ tân nếu phòng chưa sẵn"},
     ],
     tip:"<b>Tần suất bus:</b> ~30–40 phút/chuyến từ 4:25 sáng đến 20:00. Đoàn hạ cánh 7:35 → có thể bắt bus rời ICN khoảng 8:30–9:00."},
   hotel2sogang:{cls:"r-axgo", title:"Khách sạn → Sogang University",
-    total:"~50 phút · ~22 km · ~1.500₩/người", rec:"TÀU ĐIỆN", recCls:"rec-sub",
+    total:"~50 phút · ~22 km", rec:"TÀU ĐIỆN", recCls:"rec-sub",
     steps:[
       {cls:"walk", n:"🚶", what:"Đi bộ KS → ga Cheolsan (철산역)", det:"~3–5 phút"},
       {cls:"line7", n:"7", what:'<span class="badge-line b-l7">Line 7</span> Cheolsan → Daerim (대림)', det:"5 ga · ~12 phút · hướng Sangbong"},
@@ -379,7 +365,7 @@ const allRoutes = {
     ],
     tip:"<b>Tàu cuối Line 7 chiều về Cheolsan ~23:30.</b> Tuyến này dùng chung cho cả 3 ngày AXGO (14, 15, 16/07)."},
   hotel2snue:{cls:"r-wico", title:"Khách sạn → SNUE",
-    total:"~55 phút · ~24 km · ~1.500₩/người", rec:"TÀU ĐIỆN", recCls:"rec-sub",
+    total:"~55 phút · ~24 km", rec:"TÀU ĐIỆN", recCls:"rec-sub",
     steps:[
       {cls:"walk", n:"🚶", what:"Đi bộ KS → ga Cheolsan (철산역)", det:"~3–5 phút"},
       {cls:"line7", n:"7", what:'<span class="badge-line b-l7">Line 7</span> Cheolsan → Daerim (대림)', det:"5 ga · ~12 phút · hướng Sangbong"},
@@ -389,10 +375,10 @@ const allRoutes = {
     ],
     tip:"<b>Ngày 18/07 mang hành lý:</b> đi tàu giờ sáng sau 9:30 đỡ đông, chia nhóm + buddy giữ vali. SNUE có khu gửi đồ tại sảnh sự kiện."},
   snue2icn:{cls:"r-dep", title:"SNUE → Sân bay Incheon",
-    total:"~70–90 phút · 16.000₩/người", rec:"BUS 6016", recCls:"rec-bus",
+    total:"~70–90 phút", rec:"BUS 6016", recCls:"rec-bus",
     steps:[
       {cls:"bus", n:"🚌", what:"Bắt Airport Limousine Bus 6016 ngay tại SNUE", det:"Tuyến: <b>Seoul Nat'l Univ. of Education</b> → Sadang → Isu → Heukseok → ICN. Đây là đầu tuyến."},
-      {cls:"line2", n:"📍", what:"Bus chạy thẳng đến Incheon Airport T1/T2", det:"~70 phút (có thể tới 90+ phút nếu tắc giờ chiều). Vé 16.000₩/người."},
+      {cls:"line2", n:"📍", what:"Bus chạy thẳng đến Incheon Airport T1/T2", det:"~70 phút (có thể tới 90+ phút nếu tắc giờ chiều)."},
       {cls:"arrive", n:"✈️", what:"Đến sân bay Incheon", det:"Check-in Jeju Air 7C2201 → boarding 19:30 → bay 20:40"},
     ],
     tip:"<b>Khởi hành SNUE ~14:30</b> để có mặt ICN 16:00 (trước bay 4h). Hành lý đã mang theo từ sáng → không cần quay về KS."},
@@ -433,23 +419,11 @@ days.forEach((d,i)=>{
   pills.appendChild(b);
 });
 
-const costPill=document.createElement('div');
-costPill.className='pill info';
-costPill.innerHTML=`<div class="pn">💰 Chi phí</div>`;
-costPill.addEventListener('click',selectCost);
-pills.appendChild(costPill);
-
 function selectDay(i){
   document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
   pills.children[i].classList.add('on');
   pills.children[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
   renderDay(i);
-  window.scrollTo({top:document.querySelector('.pills-wrap').offsetTop,behavior:'smooth'});
-}
-function selectCost(){
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-  costPill.classList.add('on');
-  renderCost();
   window.scrollTo({top:document.querySelector('.pills-wrap').offsetTop,behavior:'smooth'});
 }
 
@@ -528,7 +502,6 @@ function renderDish(it,kind){
   return `<div class="dish ${kind}">
     <div class="dname">${it.n}<small>${it.sub}</small></div>
     <div class="rating">⭐ ${it.r}</div>
-    <div class="badges"><span class="badge">${it.price}/người</span></div>
     <div class="ddesc">${it.desc}</div>
     <div class="dhours">🕑 ${it.hrs}</div>
     <div class="pactions">
@@ -572,92 +545,6 @@ function bindMapToggles(){
   });
 }
 
-function renderCost(){
-  // VND ≈ 18 per ₩
-  const v = (krw) => Math.round(krw*18/1000)*1000;
-  const fmt = (k) => k.toLocaleString('vi-VN')+'₩';
-  const fmtVnd = (n) => (n/1000000).toFixed(1)+'M ₫';
-
-  // Confirmed (in-trip)
-  const transport = [
-    {n:"Bus 6014 ICN → Cheolsan", amt:16000, note:"Vé Airport Limousine, ngày 13/07", c:"conf"},
-    {n:"Tàu KS ↔ Sogang · 3 ngày AXGO", amt:9000, note:"~1.500₩/lượt × 6 lượt", c:"conf"},
-    {n:"Tàu phụ Banpo + Insadong", amt:3000, note:"Ngày 15/07 + 16/07, mỗi ngày ~1.500₩", c:"conf"},
-    {n:"Tàu KS ↔ SNUE · 2 ngày WICO", amt:4500, note:"~1.500₩ × 3 lượt (17/07 RT + 18/07 1 chiều)", c:"conf"},
-    {n:"Bus 6016 SNUE → ICN", amt:16000, note:"Vé Airport Limousine, ngày 18/07", c:"conf"},
-    {n:"Thẻ T-money + nạp dự phòng", amt:10000, note:"Mua thẻ 4.000₩ + nạp dư", c:"conf"},
-  ];
-  const tpTotal = transport.reduce((s,x)=>s+x.amt,0);
-
-  const meals = [
-    {n:"Trưa + Tối · 6 ngày", amt:330000, range:[270000,390000], note:"Trung bình ~45–65k/người/ngày theo quán đề xuất", c:"est"},
-    {n:"Sáng tại KS · 5 ngày", amt:0, note:"Mặc định bao gồm trong phòng KS (cần xác nhận)", c:"conf"},
-  ];
-  const mealsLow = 270000, mealsHigh = 390000;
-
-  const sights = [
-    {n:"Yeonnam Park / Ewha / Bukchon / Insadong / Myeongdong / Outlet", amt:0, note:"Tất cả miễn phí", c:"conf"},
-    {n:"Gyeongbokgung Palace", amt:3000, note:"Mặc hanbok thuê → miễn phí vé", c:"conf"},
-    {n:"N Seoul Tower (cáp treo · tùy chọn)", amt:14000, note:"Khứ hồi ~17k. Nếu không lên thì 0₩", c:"est"},
-    {n:"Hanbok rental Bukchon · 2h (tùy chọn)", amt:15000, note:"Đẹp ảnh + được miễn phí vào Gyeongbokgung", c:"est"},
-  ];
-  const sightsLow = 0, sightsHigh = 32000;
-
-  // Totals (in-Korea only)
-  const inLow = tpTotal + mealsLow + sightsLow;
-  const inHigh = tpTotal + mealsHigh + sightsHigh;
-
-  const renderRow = (r) => {
-    const amt = r.range ? `${fmt(r.range[0])} – ${fmt(r.range[1])}` :
-                 r.amt===0 ? '0₩' : fmt(r.amt);
-    return `<div class="cost-row ${r.c}">
-      <div class="cn">${r.n}${r.note?`<span class="cnote">${r.note}</span>`:''}</div>
-      <div class="ca">${amt}</div>
-    </div>`;
-  };
-
-  content.innerHTML=`<div class="dhead">
-    <div class="date">Tham khảo</div>
-    <div class="title">Chi phí ước tính tại Hàn</div>
-    <div class="gist">Cho 1 người · 6 ngày (13–18/07/2026) · không bao gồm vé bay, KS, visa, phí dự thi</div>
-  </div>
-
-  <div class="cost-legend">
-    <span><i class="lg-conf"></i>Đã tính được</span>
-    <span><i class="lg-est"></i>Ước tính theo lịch trình</span>
-  </div>
-
-  <div class="panel" style="margin-top:18px">
-    <div class="cost-section">
-      <h4><span class="ic move">🚇</span>Di chuyển tại Hàn</h4>
-      <p>Bus sân bay + tàu điện ngầm theo tuyến đã lên.</p>
-      ${transport.map(renderRow).join('')}
-      <div class="cost-sub"><span>Tạm tính</span><span>${fmt(tpTotal)}</span></div>
-    </div>
-
-    <div class="cost-section">
-      <h4><span class="ic food">🍽</span>Ăn uống</h4>
-      <p>Trưa + Tối tại quán đề xuất; sáng tại KS.</p>
-      ${meals.map(renderRow).join('')}
-      <div class="cost-sub"><span>Tạm tính</span><span>${fmt(mealsLow)} – ${fmt(mealsHigh)}</span></div>
-    </div>
-
-    <div class="cost-section">
-      <h4><span class="ic see">🗺</span>Tham quan</h4>
-      <p>Hầu hết các điểm miễn phí; một số mục tùy chọn.</p>
-      ${sights.map(renderRow).join('')}
-      <div class="cost-sub"><span>Tạm tính</span><span>${fmt(sightsLow)} – ${fmt(sightsHigh)}</span></div>
-    </div>
-  </div>
-
-  <div class="cost-total">
-    <div class="tlabel">Tổng chi phí tại Hàn / 1 người</div>
-    <div class="tnum">${fmt(inLow)} – ${fmt(inHigh)}</div>
-    <div class="tvnd">≈ ${fmtVnd(v(inLow))} – ${fmtVnd(v(inHigh))} VND <span style="opacity:.7">(tỷ giá tham khảo 1₩ ≈ 18₫)</span></div>
-    <div class="tnote"><b style="color:var(--paper)">Chưa bao gồm:</b> vé máy bay, khách sạn, visa, bảo hiểm, phí dự thi AXGO + WICO, tiền tiêu vặt cá nhân, quà cáp/lưu niệm, taxi phát sinh.<br>
-    <b style="color:var(--paper)">Tổng đoàn 25 (riêng chi tiêu tại Hàn):</b> ${fmtVnd(v(inLow)*25)} – ${fmtVnd(v(inHigh)*25)} VND</div>
-  </div>`;
-}
 
 renderDay(0);
 </script>
