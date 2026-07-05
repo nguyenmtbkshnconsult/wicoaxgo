@@ -80,6 +80,9 @@
   .row .where{display:inline-block;font-size:.7rem;color:var(--jade);font-weight:600;margin-top:5px}
   .tag{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     padding:2px 8px;border-radius:6px;margin-left:7px;vertical-align:middle;color:#fff}
+  .grp{display:inline-block;font-size:.56rem;font-weight:700;padding:2px 7px;border-radius:5px;margin-right:5px;
+    vertical-align:middle;letter-spacing:.05em;text-transform:uppercase}
+  .grp-hn{background:#0d2f4b;color:#fff} .grp-hcm{background:#fe8f01;color:#fff}
   .bar-comp,.tag-comp{background:var(--persimmon)} .wico .bar-comp,.wico .tag-comp{background:var(--indigo)}
   .bar-meal{background:var(--ochre)} .bar-travel{background:var(--slate)}
   .bar-rest{background:var(--rest)} .bar-see{background:var(--jade)}
@@ -193,6 +196,7 @@
       <span class="chip"><span class="dot d-wico"></span>WICO · <b>SNUE</b></span>
       <span class="chip"><span class="dot d-stay"></span>Lưu trú · <b>JS Hotel</b> (Cheolsan)</span>
       <span class="chip"><span class="dot d-fly"></span>Jeju Air · <b>HAN ↔ ICN</b></span>
+      <span class="chip"><span class="dot d-axgo"></span>Asiana · <b>SGN ↔ ICN</b></span>
     </div>
   </div>
 </header>
@@ -205,28 +209,34 @@
   <div class="wrap"><div class="col" id="day-content"></div></div>
 </main>
 
-<footer><p>Lịch trình do đoàn cung cấp (AXGO 14–16/07, WICO 17–18/07). Giờ tàu, giờ bus, giờ quán có thể thay đổi — kiểm tra lại trước khi đi. Cần internet để phông chữ và bản đồ hiển thị.</p></footer>
+<footer><p></p></footer>
 
 <script>
 const days = [
-  {date:"12/07/2026", wd:"CN", title:"Khởi hành từ Hà Nội", gist:"Tập kết & chuyến bay đêm muộn 00:45 (13/07)",
+  {date:"12/07/2026", wd:"CN", title:"Khởi hành từ Hà Nội & TP.HCM", gist:"Cả 2 đoàn tập kết, bay đêm muộn → đến ICN sáng 13/07",
     schedule:[
-      {t:"20:30", type:"doc", act:"Điểm tập kết đoàn, kiểm tra giấy tờ, hộ chiếu, hành lý", note:"Đủ bộ: passport + visa + bản photo + giấy đồng ý của phụ huynh"},
-      {t:"20:45", type:"travel", act:"Di chuyển ra sân bay theo xe của BTC", note:"Điểm danh trước khi xe lăn bánh"},
-      {t:"21:45", type:"doc", act:"Có mặt sân bay Nội Bài; check-in, ký gửi hành lý", note:"Quầy Jeju Air mở 2–3h trước chuyến bay", where:"Nội Bài (T2)"},
-      {t:"23:50", type:"fly", act:"Lên máy bay (boarding)", note:"Boarding thường mở ~40 phút trước cất cánh"},
-      {t:"00:45", sub:"giờ VN, 13/07", type:"fly", act:"Máy bay Jeju Air 7C2202 cất cánh đi Seoul", note:"Bay 4g 50; nhắc HS ngủ để giảm jet lag", where:"Nội Bài → Incheon"},
+      {t:"19:30", type:"doc", act:"Tập kết đoàn TP.HCM", grp:"hcm", note:"Số nhà 22, đường số 8, Hà Đô Centrosa, Phường Hoà Hưng, Q.10. Kiểm tra passport + visa + hành lý", where:"Hà Đô Centrosa, Q.10"},
+      {t:"20:00", type:"doc", act:"Tập kết đoàn Hà Nội", grp:"hn", note:"Số 39M2, ngõ 35 Trần Kim Xuyến, Cầu Giấy. Kiểm tra passport + visa + hành lý + giấy đồng ý PH", where:"Trần Kim Xuyến, Cầu Giấy"},
+      {t:"20:00", type:"travel", act:"Di chuyển ra Tân Sơn Nhất (~20 phút)", grp:"hcm"},
+      {t:"20:30", type:"travel", act:"Di chuyển ra Nội Bài (~45 phút)", grp:"hn"},
+      {t:"20:30", type:"doc", act:"Đến TSN Nhà ga 2; check-in Asiana Airlines", grp:"hcm", note:"Quầy Asiana mở ~3h trước bay. Ký gửi 1×23kg + xách tay 1×10kg", where:"Tân Sơn Nhất T2"},
+      {t:"21:30", type:"doc", act:"Đến Nội Bài Nhà ga 2; check-in Jeju Air", grp:"hn", note:"Quầy Jeju Air mở 2–3h trước bay. Ký gửi 1×15kg + xách tay 1×10kg", where:"Nội Bài T2"},
+      {t:"23:20", type:"fly", act:"Boarding Asiana OZ-736", grp:"hcm"},
+      {t:"23:50", type:"fly", act:"Boarding Jeju Air 7C2202", grp:"hn"},
+      {t:"00:10", sub:"13/07", type:"fly", act:"Asiana OZ-736 cất cánh SGN → ICN", grp:"hcm", note:"Bay ~5g 10 → hạ cánh ICN Nhà ga 2 lúc 07:20 giờ Hàn", where:"SGN → Incheon T2"},
+      {t:"00:45", sub:"13/07", type:"fly", act:"Jeju Air 7C2202 cất cánh HAN → ICN", grp:"hn", note:"Bay 4g 50 → hạ cánh ICN Nhà ga 1 lúc 07:35 giờ Hàn", where:"HAN → Incheon T1"},
     ]},
 
-  {date:"13/07/2026", wd:"T2", title:"Đến Seoul · về khách sạn", gist:"Hạ cánh sáng, di chuyển về Gwangmyeong",
+  {date:"13/07/2026", wd:"T2", title:"Đến Seoul · về khách sạn", gist:"Cả 2 đoàn hạ cánh ICN cách nhau 15 phút → cùng về KS",
     schedule:[
-      {t:"07:35", type:"doc", act:"Hạ cánh Incheon, nhập cảnh, lấy hành lý ký gửi", note:"Khai e-Arrival Card (QR) trước khi bay; gom đoàn sau cửa ra", where:"Sân bay Incheon"},
-      {t:"09:00", type:"travel", act:"Bắt Airport Limousine Bus 6014 → Cheolsan Station", note:"Bus dừng ngay Cheolsan, đi bộ 3–5p về KS", expand:{kind:"route", id:"icn2hotel"}},
+      {t:"07:20", type:"doc", act:"Đoàn HCM hạ cánh Incheon T2 (Asiana OZ-736)", grp:"hcm", note:"Nhập cảnh, lấy hành lý → chờ đoàn HN tại khu vực Bus Limousine T2", where:"Incheon T2"},
+      {t:"07:35", type:"doc", act:"Đoàn HN hạ cánh Incheon T1 (Jeju Air 7C2202)", grp:"hn", note:"Nhập cảnh, lấy hành lý. Bus 6014 đón cả T1 và T2", where:"Incheon T1"},
+      {t:"09:00", type:"travel", act:"Cả 2 đoàn bắt Airport Limousine Bus 6014 → Cheolsan Station", note:"Bus đón tại T1 rồi T2 (hoặc ngược lại). Đi bộ 3–5p về KS", expand:{kind:"route", id:"icn2hotel"}},
       {t:"10:30", type:"rest", act:"Đến khách sạn, gửi hành lý, nghỉ ngơi nhẹ", note:"Phòng có thể chưa sẵn — gửi hành lý ở lễ tân. Đoàn vừa bay đêm, không nên ép lịch nặng", where:"JS Hotel"},
       {t:"12:30", type:"meal", act:"Ăn trưa quanh khách sạn", where:"Cheolsan", expand:{kind:"meal", slot:"lunch"}},
       {t:"14:30", type:"see", act:"Tham quan khám phá", note:"Vừa bay đêm → chọn một điểm, không đi xa", expand:{kind:"sights", id:"see1"}},
       {t:"19:00", type:"meal", act:"Ăn tối quanh khách sạn", where:"Cheolsan", expand:{kind:"meal", slot:"dinner"}},
-      {t:"21:00", type:"rest", act:"Nghỉ ngơi tại khách sạn", note:"Sạc thiết bị thuyết trình (ổ 220V chân tròn)"},
+      {t:"21:00", type:"rest", act:"Nghỉ ngơi tại khách sạn"},
     ],
     meals:{
       lunch:[
@@ -332,10 +342,11 @@ const days = [
       {t:"10:30", type:"comp", act:"Đến SNUE; gửi hành lý tại sảnh; dự lễ trao giải + bế mạc WICO", where:"SNUE"},
       {t:"13:00", type:"meal", act:"Ăn trưa quanh SNUE; lấy hành lý ra điểm đón bus", where:"Seocho", expand:{kind:"meal", slot:"lunch"}},
       {t:"14:30", type:"travel", act:"Bắt Airport Limousine Bus 6016 tại SNUE → ICN", note:"~70–90 phút. SNUE là đầu tuyến", where:"SNUE → ICN", expand:{kind:"route", id:"snue2icn"}},
-      {t:"16:00", type:"doc", act:"Đến sân bay Incheon, làm thủ tục, ký gửi hành lý", note:"Có mặt sân bay tối thiểu 3h trước cho đoàn đông", where:"Sân bay Incheon"},
-      {t:"19:30", type:"fly", act:"Lên máy bay (boarding)"},
-      {t:"20:40", type:"fly", act:"Jeju Air 7C2201 cất cánh về Hà Nội", note:"Bay 5g 05", where:"Incheon → Nội Bài"},
-      {t:"23:45", sub:"giờ VN", type:"fly", act:"Hạ cánh Nội Bài, kết thúc chuyến đi", where:"Nội Bài"},
+      {t:"16:00", type:"doc", act:"Đến sân bay Incheon, cả 2 đoàn làm thủ tục", note:"Đoàn HCM check-in Asiana tại T2 · Đoàn HN check-in Jeju Air tại T1. Bus 6016 dừng cả T1 & T2", where:"Sân bay Incheon"},
+      {t:"18:50", type:"fly", act:"Đoàn HCM boarding Asiana OZ-735", grp:"hcm"},
+      {t:"19:30", type:"fly", act:"Asiana OZ-735 cất cánh ICN → SGN", grp:"hcm", note:"Bay ~5g 20 → hạ cánh TSN T2 lúc 22:50 giờ VN", where:"Incheon T2 → Tân Sơn Nhất"},
+      {t:"19:50", type:"fly", act:"Đoàn HN boarding Jeju Air 7C2201", grp:"hn"},
+      {t:"20:40", type:"fly", act:"Jeju Air 7C2201 cất cánh ICN → HAN", grp:"hn", note:"Bay 5g 05 → hạ cánh Nội Bài lúc 23:45 giờ VN", where:"Incheon T1 → Nội Bài"},
     ],
     meals:{
       lunch:[
@@ -381,7 +392,7 @@ const allRoutes = {
       {cls:"line2", n:"📍", what:"Bus chạy thẳng đến Incheon Airport T1/T2", det:"~70 phút (có thể tới 90+ phút nếu tắc giờ chiều)."},
       {cls:"arrive", n:"✈️", what:"Đến sân bay Incheon", det:"Check-in Jeju Air 7C2201 → boarding 19:30 → bay 20:40"},
     ],
-    tip:"<b>Khởi hành SNUE ~14:30</b> để có mặt ICN 16:00 (trước bay 4h). Hành lý đã mang theo từ sáng → không cần quay về KS."},
+    tip:"<b>Khởi hành SNUE ~14:30</b> để có mặt ICN 16:00. Bus 6016 dừng cả T1 & T2. Đoàn HCM (Asiana 19:30, T2) check-in trước · Đoàn HN (Jeju Air 20:40, T1) check-in sau. Hành lý đã mang theo từ sáng → không cần quay về KS."},
 };
 
 const allPlaces = {
@@ -439,10 +450,11 @@ function renderDay(i){
   d.schedule.forEach(r=>{
     const hasExpand=!!r.expand;
     const tag=r.type==='comp'?`<span class="tag tag-comp">${d.comp==='wico'?'WICO':'AXGO'}</span>`:'';
+    const grp=r.grp?`<span class="grp grp-${r.grp}">${r.grp==='hn'?'Đoàn HN':'Đoàn HCM'}</span>`:'';
     html+=`<div class="row ${hasExpand?'has-expand':''}">
       <div class="t">${r.t}${r.sub?`<small>${r.sub}</small>`:''}</div>
       <div class="bar bar-${r.type}"></div>
-      <div><div class="act">${r.act}${tag}</div>
+      <div><div class="act">${grp}${r.act}${tag}</div>
       ${r.note?`<div class="note">${r.note}</div>`:''}
       ${r.where?`<span class="where">◦ ${r.where}</span>`:''}</div>
     </div>`;
